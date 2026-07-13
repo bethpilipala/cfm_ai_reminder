@@ -1,5 +1,6 @@
 from config_loader import get_manual_base_url
 from lesson_fetcher import download_lesson
+from bs4 import BeautifulSoup
 
 
 def main():
@@ -15,6 +16,19 @@ def main():
     html = download_lesson(lesson_url)
 
     print(html[:1000])
+
+    # after downloading html...
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    print("TITLE:")
+    print(soup.title.string)
+
+    print("\nMETA TAGS:\n")
+
+    for meta in soup.find_all("meta"):
+        if meta.get("content"):
+            print(meta.get("name"), "=", meta.get("content"))
 
 
 if __name__ == "__main__":
