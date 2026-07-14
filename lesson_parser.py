@@ -47,20 +47,23 @@ def parse_lesson(
         # Expected format:
         # July 6–12. “There Is a Prophet in Israel”: 2 Kings 2–7
 
-        pattern = (
-            r'^(.*?)\. '
-            r'[“"](.+?)[”"]'
-            r': (.+)$'
-        )
+        # Split into date range and the remainder.
+        parts = page_title.split(". ", maxsplit=1)
 
-        match = re.match(pattern, page_title)
+        if len(parts) != 2:
+            raise Exception(f"Unexpected page title format: {page_title}")
 
-        if match is None:
-            raise Exception("Unexpected page title format.")
+        date_range = parts[0]
+        remainder = parts[1]
 
-        date_range = match.group(1)
-        title = match.group(2)
-        scripture_assignment = match.group(3)
+        # Split the remainder into title and scripture assignment.
+        parts = remainder.rsplit(": ", maxsplit=1)
+
+        if len(parts) != 2:
+            raise Exception(f"Unexpected page title format: {page_title}")
+
+        title = parts[0].strip("“”\"")
+        scripture_assignment = parts[1]
 
         start_date, end_date = parse_date_range(date_range, year)
 

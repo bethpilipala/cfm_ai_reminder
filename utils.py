@@ -16,6 +16,15 @@ MONTHS = {
     "December": 12,
 }
 
+def build_lesson_url(base_url: str, lesson_number: int) -> str:
+    """
+    Builds the URL for a lesson.
+
+    Example:
+    https://.../28?lang=eng
+    """
+
+    return f"{base_url}/{lesson_number:02}?lang=eng"
 
 def parse_date_range(date_range: str, year: int) -> tuple[date, date]:
     """
