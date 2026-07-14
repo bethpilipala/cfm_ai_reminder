@@ -27,6 +27,13 @@ class ChapterInfo:
     chapter: int
     verse_count: int | None = None
 
+@dataclass(slots=True)
+class Passage:
+    book: str
+    chapter: int
+    start_verse: int
+    end_verse: int
+
 
 @dataclass(slots=True)
 class DailyReading:
@@ -35,8 +42,8 @@ class DailyReading:
     """
 
     day: int
-    reading: str
-    scripture_url: str = ""
+    passages: list[Passage]
+    scripture_url: str = "" # This will give a link to the first chapter of the reading, if available.
 
 
 @dataclass(slots=True)
@@ -47,7 +54,8 @@ class Reminder:
 
     day: int
     reading: DailyReading
-    message: str
+    title: str
+    body: str
 
 
 @dataclass(slots=True)
