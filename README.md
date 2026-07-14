@@ -19,11 +19,11 @@ The project combines deterministic code with AI:
 
 ✅ Find current lesson
 
+✅ Parse scripture references
+
+✅ Verse lookup
+
 -------------------------
-
-⬜ Parse scripture references
-
-⬜ Verse lookup
 
 ⬜ AI reading division
 
@@ -31,9 +31,9 @@ The project combines deterministic code with AI:
 
 ⬜ AI reminder generation
 
-⬜ JSON output
+⬜ Weekly plan storage
 
-⬜ SMS
+⬜ SMS notifications
 
 ⬜ Weekly scheduler
 
@@ -43,10 +43,18 @@ The project combines deterministic code with AI:
 flowchart TD
     A[config.json] --> B[config_loader.py]
     B --> C[lesson_finder.py]
+
     C --> D[lesson_fetcher.py]
     D --> E[lesson_parser.py]
     E --> F[Lesson]
+
     C --> F
+
+    F --> G[scripture_parser.py]
+    G --> H[ChapterInfo]
+
+    H --> I[verse_lookup.py]
+    I --> J[ChapterInfo + Verse Counts]
 ```
 
 ## main.py
@@ -90,11 +98,26 @@ Contains all project data models using Python dataclasses.
 
 Current models:
 
+- LessonWeek
 - Lesson
 - ChapterInfo
 - DailyReading
 - Reminder
 - WeeklyPlan
+
+The models are progressively enriched as they move through the pipeline.
+
+For example:
+
+Lesson
+
+↓
+
+ChapterInfo
+
+↓
+
+ChapterInfo (with verse counts)
 
 These objects are passed between modules instead of using dictionaries.
 
@@ -117,57 +140,73 @@ Does **not** parse any HTML.
 
 Parses downloaded HTML into a `Lesson` object.
 
-Current responsibilities:
+Responsibilities:
 
-- Read the page title
+- Parse the lesson page title
 - Extract:
-  - Date range
+  - Lesson week
   - Lesson title
   - Scripture assignment
+- Convert lesson dates into `date` objects
+- Return a populated `Lesson`
 
-Future responsibilities:
-
-- AI fallback parsing if deterministic parsing fails.
+The parser is deterministic and does not rely on AI.
 
 ---
 
 ## lesson_finder.py
 
-(Not yet implemented)
-
-Will determine the current week's lesson.
+Determines the current week's lesson.
 
 Responsibilities:
 
-- Loop through lessons 01–52
-- Download each lesson
+- Determine the current manual
+- Download lesson pages
 - Parse each lesson
-- Compare lesson dates with today's date
-- Return the current lesson
+- Compare the lesson week to today's date
+- Return the current `Lesson`
 
 ---
 
 ## scripture_parser.py
 
-(Not yet implemented)
+Parses scripture assignments into structured chapter data.
 
-Will convert scripture references into structured data.
+Supports:
+
+- Single chapters
+- Consecutive chapter ranges
+- Non-consecutive chapter ranges
+- Multiple books
+- Numbered books
+- Long book names
+- Introductory lessons with no scripture reading
 
 Example:
 
-Genesis 37–41
+```
+Proverbs 1–4; 15–16; 22; 31; Ecclesiastes 1–3; 11–12
+```
 
 ↓
 
-Genesis 37
+```
+Proverbs 1
+Proverbs 2
+Proverbs 3
+Proverbs 4
+Proverbs 15
+Proverbs 16
+Proverbs 22
+Proverbs 31
+Ecclesiastes 1
+Ecclesiastes 2
+Ecclesiastes 3
+Ecclesiastes 11
+Ecclesiastes 12
+```
 
-Genesis 38
-
-Genesis 39
-
-Genesis 40
-
-Genesis 41
+If a lesson contains no scripture reading (such as an introduction lesson), an empty chapter list is returned.
 
 ---
 
@@ -175,20 +214,23 @@ Genesis 41
 
 General helper functions used throughout the project.
 
-Examples:
+Responsibilities:
 
-- Date parsing
-- Miscellaneous reusable utilities
-
-These functions are intentionally kept small and independent.
+- Parse Come, Follow Me lesson date ranges
+- Build lesson URLs
+- General helper functions shared across modules
 
 ---
 
 ## verse_lookup.py
 
-(Not yet implemented)
+Loads verse counts from a local JSON database.
 
-Loads and queries the local verse-count database.
+Responsibilities:
+
+- Load the verse-count dataset
+- Populate each `ChapterInfo` with its verse count
+- Validate that every referenced chapter exists
 
 The verse-count JSON is considered the authoritative source.
 
@@ -248,19 +290,21 @@ The project follows one guiding principle:
 
 > Objective truth comes from code. Subjective judgment comes from AI.
 
-The code is responsible for:
+Deterministic code is responsible for:
 
-- Current lesson
+- Current lesson selection
 - Scripture assignments
+- Chapter parsing
 - Verse counts
 - Validation
 - URLs
+- Data storage
 - Notifications
 
 AI is responsible for:
 
-- Dividing readings
-- Writing reminders
+- Dividing weekly readings into daily assignments
+- Writing personalized reminders
 - Natural language generation
 
-AI is never treated as the source of factual scripture information.
+The AI is never treated as the source of factual scripture information.

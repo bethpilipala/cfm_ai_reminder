@@ -1,5 +1,6 @@
 from lesson_finder import find_current_lesson
 from scripture_parser import parse_scripture_assignment
+from verse_lookup import add_verse_counts
 
 
 def main():
@@ -9,6 +10,8 @@ def main():
     chapters = parse_scripture_assignment(
         lesson.scripture_assignment
     )
+
+    chapters = add_verse_counts(chapters)
 
     print()
 
@@ -28,7 +31,11 @@ def main():
         print("  No scripture chapters.")
     else:
         for chapter in chapters:
-            print(f"  {chapter.book} {chapter.chapter}")
+            print(
+                f"{chapter.book} "
+                f"{chapter.chapter} "
+                f"({chapter.verse_count} verses)"
+            )
 
 
 if __name__ == "__main__":
