@@ -1,12 +1,15 @@
 from bs4 import BeautifulSoup
-from models import Lesson
 import re
+
+from models import Lesson, LessonWeek
+from utils import parse_date_range
 
 
 def parse_lesson(
     html: str,
     lesson_number: int,
-    lesson_url: str
+    lesson_url: str,
+    year: int
 ) -> Lesson:
     """
     Parses a Come, Follow Me lesson page.
@@ -18,7 +21,9 @@ def parse_lesson(
     lesson_number : int
         Lesson number (1-52).
     lesson_url : str
-        Full URL of the lesson.
+        Full lesson URL.
+    year : int
+        Year of the Come, Follow Me manual.
 
     Returns
     -------
@@ -34,16 +39,13 @@ def parse_lesson(
     try:
         soup = BeautifulSoup(html, "html.parser")
 
-        # -------------------------
-        # Extract the page title
-        # -------------------------
         if soup.title is None or soup.title.string is None:
             raise Exception("No <title> element found.")
 
         page_title = soup.title.string.strip()
 
-        # Example:
-        # "July 6–12. “There Is a Prophet in Israel”"
+        # Expected format:
+        # July 6–12. “There Is a Prophet in Israel”: 2 Kings 2–7
 
         pattern = (
             r'^(.*?)\. '
@@ -60,9 +62,18 @@ def parse_lesson(
         title = match.group(2)
         scripture_assignment = match.group(3)
 
+        start_date, end_date = parse_date_range(date_range, year)
+
+        week = LessonWeek(
+            display=date_range,
+            start=start_date,
+            end=end_date
+        )
+
         return Lesson(
             lesson_number=lesson_number,
-            date_range=date_range,
+            year=year,
+            week=week,
             title=title,
             scripture_assignment=scripture_assignment,
             lesson_url=lesson_url
