@@ -1,20 +1,22 @@
 from dataclasses import dataclass, field
+from datetime import date
 
-
+@dataclass(slots=True)
+class LessonWeek:
+    display: str
+    start: date
+    end: date
 @dataclass(slots=True)
 class Lesson:
     """
     Represents one Come, Follow Me lesson.
     """
-
     lesson_number: int
-    date_range: str
+    week: LessonWeek
     title: str
     scripture_assignment: str
     lesson_url: str
-    # year: int
-
-
+    year: int
 @dataclass(slots=True)
 class ChapterInfo:
     """
