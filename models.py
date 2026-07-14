@@ -25,7 +25,7 @@ class ChapterInfo:
 
     book: str
     chapter: int
-    verse_count: int
+    # verse_count: int
 
 
 @dataclass(slots=True)
