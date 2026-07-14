@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import re
 
 from models import Lesson, LessonWeek
 from utils import parse_date_range

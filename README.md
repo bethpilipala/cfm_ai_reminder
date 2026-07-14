@@ -11,6 +11,22 @@ The project combines deterministic code with AI:
 
 # Current Project Structure
 
+config.json
+        │
+        ▼
+config_loader.py
+        │
+        ▼
+lesson_finder.py
+        │
+        ├───────────────┐
+        ▼               │
+lesson_fetcher.py       │
+        ▼               │
+lesson_parser.py        │
+        ▼               │
+     Lesson ◄───────────┘
+
 ## main.py
 
 Application entry point.
