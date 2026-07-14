@@ -12,6 +12,7 @@ class Lesson:
     title: str
     scripture_assignment: str
     lesson_url: str
+    # year: int
 
 
 @dataclass(slots=True)
