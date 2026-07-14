@@ -1,5 +1,4 @@
-from datetime import date
-
+from datetime import date, timedelta
 
 MONTHS = {
     "January": 1,
@@ -15,6 +14,14 @@ MONTHS = {
     "November": 11,
     "December": 12,
 }
+
+
+def week_start(day: date) -> date:
+    """
+    Returns the Monday of the week containing the given date.
+    """
+
+    return day - timedelta(days=day.weekday())
 
 def build_lesson_url(base_url: str, lesson_number: int) -> str:
     """

@@ -1,9 +1,16 @@
 from lesson_finder import find_current_lesson
 from scripture_parser import parse_scripture_assignment
 from verse_lookup import add_verse_counts
+from plan_storage import current_plan_exists
 
 
 def main():
+
+    if current_plan_exists():
+        print("Weekly plan already exists.")
+        return
+
+    print("Generating weekly plan...")
 
     lesson = find_current_lesson()
 
