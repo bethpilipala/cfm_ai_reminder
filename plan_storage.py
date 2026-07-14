@@ -1,4 +1,6 @@
+import json
 from datetime import date
+from dataclasses import asdict
 from pathlib import Path
 
 from models import Lesson, WeeklyPlan
@@ -38,10 +40,26 @@ def current_plan_exists() -> bool:
 
 def save_plan(plan: WeeklyPlan) -> None:
     """
-    Saves a weekly reading plan.
+    Saves a weekly reading plan as a JSON file.
     """
 
-    raise NotImplementedError
+    filename = (
+        f"{plan.lesson.week.start}.json"
+    )
+
+    filepath = PLAN_DIRECTORY / filename
+
+    with filepath.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+        json.dump(
+            asdict(plan),
+            file,
+            indent=4,
+            ensure_ascii=False,
+            default=str,
+        )
 
 
 def load_plan(lesson: Lesson) -> WeeklyPlan:

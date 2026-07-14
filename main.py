@@ -1,7 +1,8 @@
 from lesson_finder import find_current_lesson
 from scripture_parser import parse_scripture_assignment
 from verse_lookup import add_verse_counts
-from plan_storage import current_plan_exists
+from plan_storage import current_plan_exists, save_plan
+from reading_divider import divide_reading
 
 
 def main():
@@ -43,6 +44,38 @@ def main():
                 f"{chapter.chapter} "
                 f"({chapter.verse_count} verses)"
             )
+
+        print()
+
+
+    print("Generating reading plan...")
+
+    weekly_plan = divide_reading(
+        lesson,
+        chapters,
+    )
+
+    save_plan(weekly_plan)
+
+    print()
+    print("Weekly plan saved.")
+
+    print()
+    print("Weekly Plan:")
+
+    for reading in weekly_plan.readings:
+        print(f"Day {reading.day}:")
+
+        if not reading.passages:
+            print("  No passages.")
+        else:
+            for passage in reading.passages:
+                print(
+                    f"  {passage.book} "
+                    f"{passage.chapter}:"
+                    f"{passage.start_verse}-"
+                    f"{passage.end_verse}"
+                )
 
 
 if __name__ == "__main__":

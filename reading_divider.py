@@ -1,12 +1,156 @@
-from models import ChapterInfo, Lesson, WeeklyPlan
+import json
+
+from models import (
+    ChapterInfo,
+    DailyReading,
+    Lesson,
+    Passage,
+    WeeklyPlan,
+)
+
+
+MOCK_AI_RESPONSE = {
+    "days": [
+        {
+            "passages": [
+                {
+                    "book": "Genesis",
+                    "chapter": 37,
+                    "start_verse": 1,
+                    "end_verse": 24,
+                }
+            ]
+        },
+        {
+            "passages": []
+        },
+        {
+            "passages": []
+        },
+        {
+            "passages": []
+        },
+        {
+            "passages": []
+        },
+        {
+            "passages": []
+        },
+        {
+            "passages": []
+        },
+    ]
+}
+
+
+def build_request(
+    lesson: Lesson,
+    chapters: list[ChapterInfo],
+) -> dict:
+    """
+    Builds the JSON request that will be sent to the AI.
+    """
+
+    total_verses = sum(
+        chapter.verse_count or 0
+        for chapter in chapters
+    )
+
+    request: dict = {
+        "lesson": {
+            "title": lesson.title,
+            "scripture_assignment": lesson.scripture_assignment,
+            "total_verses": total_verses,
+        },
+        "chapters": [],
+    }
+
+    for chapter in chapters:
+        request["chapters"].append(
+            {
+                "book": chapter.book,
+                "chapter": chapter.chapter,
+                "verses": chapter.verse_count,
+            }
+        )
+
+    return request
+
+
+def print_request(request: dict) -> None:
+    """
+    Prints the AI request in a readable format.
+    """
+
+    print(
+        json.dumps(
+            request,
+            indent=4,
+            ensure_ascii=False,
+        )
+    )
+
+
+def parse_response(
+    lesson: Lesson,
+    chapters: list[ChapterInfo],
+    response: dict,
+) -> WeeklyPlan:
+    """
+    Converts the AI response JSON into a WeeklyPlan object.
+    """
+
+    weekly_plan = WeeklyPlan(
+        lesson=lesson,
+        chapters=chapters,
+    )
+
+    for day_number, day in enumerate(
+        response["days"],
+        start=1,
+    ):
+        passages = []
+
+        for passage in day["passages"]:
+            passages.append(
+                Passage(
+                    book=passage["book"],
+                    chapter=passage["chapter"],
+                    start_verse=passage["start_verse"],
+                    end_verse=passage["end_verse"],
+                )
+            )
+
+        weekly_plan.readings.append(
+            DailyReading(
+                day=day_number,
+                passages=passages,
+            )
+        )
+
+    return weekly_plan
 
 
 def divide_reading(
     lesson: Lesson,
-    chapters: list[ChapterInfo]
+    chapters: list[ChapterInfo],
 ) -> WeeklyPlan:
     """
-    Uses AI to divide the week's reading into seven daily readings.
+    Divides a scripture assignment into a weekly reading plan.
+
+    Currently uses a mock AI response.
+    This will later be replaced with a real AI API call.
     """
 
-    raise NotImplementedError
+    request = build_request(
+        lesson,
+        chapters,
+    )
+
+    print_request(request)
+
+    return parse_response(
+        lesson,
+        chapters,
+        MOCK_AI_RESPONSE,
+    )

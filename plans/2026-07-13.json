@@ -1,0 +1,111 @@
+{
+    "lesson": {
+        "lesson_number": 29,
+        "week": {
+            "display": "July 13–19",
+            "start": "2026-07-13",
+            "end": "2026-07-19"
+        },
+        "title": "He Trusted in the Lord God of Israel",
+        "scripture_assignment": "2 Kings 16–25",
+        "lesson_url": "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/29?lang=eng",
+        "year": 2026
+    },
+    "chapters": [
+        {
+            "book": "2 Kings",
+            "chapter": 16,
+            "verse_count": 20
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 17,
+            "verse_count": 41
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 18,
+            "verse_count": 37
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 19,
+            "verse_count": 37
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 20,
+            "verse_count": 21
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 21,
+            "verse_count": 26
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 22,
+            "verse_count": 20
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 23,
+            "verse_count": 37
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 24,
+            "verse_count": 20
+        },
+        {
+            "book": "2 Kings",
+            "chapter": 25,
+            "verse_count": 30
+        }
+    ],
+    "readings": [
+        {
+            "day": 1,
+            "passages": [
+                {
+                    "book": "Genesis",
+                    "chapter": 37,
+                    "start_verse": 1,
+                    "end_verse": 24
+                }
+            ],
+            "scripture_url": ""
+        },
+        {
+            "day": 2,
+            "passages": [],
+            "scripture_url": ""
+        },
+        {
+            "day": 3,
+            "passages": [],
+            "scripture_url": ""
+        },
+        {
+            "day": 4,
+            "passages": [],
+            "scripture_url": ""
+        },
+        {
+            "day": 5,
+            "passages": [],
+            "scripture_url": ""
+        },
+        {
+            "day": 6,
+            "passages": [],
+            "scripture_url": ""
+        },
+        {
+            "day": 7,
+            "passages": [],
+            "scripture_url": ""
+        }
+    ],
+    "reminders": []
+}
