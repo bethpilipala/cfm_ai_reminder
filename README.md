@@ -9,23 +9,45 @@ The project combines deterministic code with AI:
 
 ---
 
+# Current Progress
+
+✅ Config
+
+✅ Download HTML
+
+✅ Parse lesson
+
+✅ Find current lesson
+
+-------------------------
+
+⬜ Parse scripture references
+
+⬜ Verse lookup
+
+⬜ AI reading division
+
+⬜ Reading validation
+
+⬜ AI reminder generation
+
+⬜ JSON output
+
+⬜ SMS
+
+⬜ Weekly scheduler
+
 # Current Project Structure
 
-config.json
-        │
-        ▼
-config_loader.py
-        │
-        ▼
-lesson_finder.py
-        │
-        ├───────────────┐
-        ▼               │
-lesson_fetcher.py       │
-        ▼               │
-lesson_parser.py        │
-        ▼               │
-     Lesson ◄───────────┘
+```mermaid
+flowchart TD
+    A[config.json] --> B[config_loader.py]
+    B --> C[lesson_finder.py]
+    C --> D[lesson_fetcher.py]
+    D --> E[lesson_parser.py]
+    E --> F[Lesson]
+    C --> F
+```
 
 ## main.py
 
