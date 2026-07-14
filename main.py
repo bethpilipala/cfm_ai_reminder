@@ -1,11 +1,10 @@
 from lesson_finder import find_current_lesson
+from scripture_parser import parse_scripture_assignment
 
 
 def main():
 
     lesson = find_current_lesson()
-
-    from scripture_parser import parse_scripture_assignment
 
     chapters = parse_scripture_assignment(
         lesson.scripture_assignment
