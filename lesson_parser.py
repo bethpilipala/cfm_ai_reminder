@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
-
 from models import Lesson
+import re
 
 
 def parse_lesson(
@@ -45,21 +45,20 @@ def parse_lesson(
         # Example:
         # "July 6–12. “There Is a Prophet in Israel”"
 
-        if ". " not in page_title:
+        pattern = (
+            r'^(.*?)\. '
+            r'[“"](.+?)[”"]'
+            r': (.+)$'
+        )
+
+        match = re.match(pattern, page_title)
+
+        if match is None:
             raise Exception("Unexpected page title format.")
 
-        date_range, title = page_title.split(". ", maxsplit=1)
-
-        # Remove smart quotes if present
-        title = title.strip("“”\"")
-
-        # -------------------------
-        # Scripture assignment
-        #
-        # We'll implement this next after
-        # inspecting the page structure.
-        # -------------------------
-        scripture_assignment = ""
+        date_range = match.group(1)
+        title = match.group(2)
+        scripture_assignment = match.group(3)
 
         return Lesson(
             lesson_number=lesson_number,

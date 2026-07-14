@@ -1,6 +1,6 @@
 from config_loader import get_manual_base_url
 from lesson_fetcher import download_lesson
-from bs4 import BeautifulSoup
+from lesson_parser import parse_lesson
 
 
 def main():
@@ -15,21 +15,18 @@ def main():
 
     html = download_lesson(lesson_url)
 
-    print(html[:1000])
+    lesson = parse_lesson(
+        html,
+        lesson_number,
+        lesson_url
+    )
 
-    # after downloading html...
+    print(lesson)
+    print()
 
-    soup = BeautifulSoup(html, "html.parser")
-
-    print("TITLE:")
-    print(soup.title.string)
-
-    print("\nMETA TAGS:\n")
-
-    for meta in soup.find_all("meta"):
-        if meta.get("content"):
-            print(meta.get("name"), "=", meta.get("content"))
-
+    print(f"Date Range : {lesson.date_range}")
+    print(f"Title      : {lesson.title}")
+    print(f"Assignment : {lesson.scripture_assignment}")
 
 if __name__ == "__main__":
     main()
