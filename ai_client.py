@@ -1,7 +1,7 @@
 import json
 
 from google import genai
-from google.genai import types
+from google.genai import types, errors
 
 from config_loader import get_api_key
 
@@ -25,14 +25,26 @@ def generate_json(
         f"{json.dumps(request, indent=2, ensure_ascii=False)}"
     )
 
-    response = _client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=full_prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            temperature=0.3,
-        ),
-    )
+    try:
+        response = _client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=full_prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                temperature=0.3,
+            ),
+        )
+
+    except errors.ClientError as error:
+        if error.code == 400:
+            raise RuntimeError(
+                "Gemini API rejected the request. "
+                "Check that your API key is valid."
+            ) from error
+
+        raise RuntimeError(
+            "Gemini API request failed."
+        ) from error
 
     print("\nGemini Response:")
     print(response.text)

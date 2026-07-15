@@ -50,10 +50,16 @@ def main():
 
     print("Generating reading plan...")
 
-    weekly_plan = divide_reading(
-        lesson,
-        chapters,
-    )
+    try:
+        weekly_plan = divide_reading(
+            lesson,
+            chapters,
+        )
+
+    except RuntimeError as error:
+        print()
+        print(f"Error generating reading plan: {error}")
+        return
 
     save_plan(weekly_plan)
 
