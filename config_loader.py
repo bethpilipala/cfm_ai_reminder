@@ -66,3 +66,13 @@ def get_manual_base_url() -> str:
         return predicted
 
     raise Exception(f"No Come, Follow Me manual found for {year}.")
+
+
+def get_api_key() -> str:
+    """
+    Returns the Gemini API key from config.json.
+    """
+
+    config = load_config()
+
+    return config["api_key"]

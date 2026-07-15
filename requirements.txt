@@ -3,3 +3,4 @@ beautifulsoup4
 python-dateutil
 openai
 boto3
+google-genai

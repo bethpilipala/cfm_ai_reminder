@@ -1,5 +1,8 @@
 import json
 
+from ai_client import generate_json
+from prompt_loader import load_prompt
+
 from models import (
     ChapterInfo,
     DailyReading,
@@ -147,10 +150,15 @@ def divide_reading(
         chapters,
     )
 
-    print_request(request)
+    prompt = load_prompt("divide_reading")
+
+    response = generate_json(
+        prompt,
+        request,
+    )
 
     return parse_response(
         lesson,
         chapters,
-        MOCK_AI_RESPONSE,
+        response,
     )

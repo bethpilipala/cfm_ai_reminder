@@ -1,0 +1,51 @@
+import json
+
+from google import genai
+from google.genai import types
+
+from config_loader import get_api_key
+
+
+_client = genai.Client(
+    api_key=get_api_key()
+)
+
+
+def generate_json(
+    prompt: str,
+    request: dict,
+) -> dict:
+    """
+    Sends a request to Gemini and returns the JSON response.
+    """
+
+    full_prompt = (
+        f"{prompt}\n\n"
+        "Input JSON:\n"
+        f"{json.dumps(request, indent=2, ensure_ascii=False)}"
+    )
+
+    response = _client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=full_prompt,
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            temperature=0.3,
+        ),
+    )
+
+    print("\nGemini Response:")
+    print(response.text)
+
+    if response.text is None:
+        raise ValueError(
+            "Gemini returned an empty response."
+        )
+
+    try:
+        return json.loads(response.text)
+
+    except json.JSONDecodeError as error:
+        raise ValueError(
+            "Gemini returned invalid JSON."
+        ) from error

@@ -13,5 +13,6 @@
     },
 
     "timezone": "America/Denver",
-    "notificationTime": "08:00"
+    "notificationTime": "08:00",
+    "api_key": "YOUR_GEMINI_API_KEY"
 }
