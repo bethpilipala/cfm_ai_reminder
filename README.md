@@ -23,15 +23,13 @@ The project combines deterministic code with AI:
 
 ✅ Verse lookup
 
--------------------------
+✅ AI reading division
 
-⬜ AI reading division
-
-⬜ Reading validation
+✅ Reading validation
 
 ⬜ AI reminder generation
 
-⬜ Weekly plan storage
+✅ Weekly plan storage
 
 ⬜ SMS notifications
 
@@ -55,6 +53,13 @@ flowchart TD
 
     H --> I[verse_lookup.py]
     I --> J[ChapterInfo + Verse Counts]
+
+    J --> K[reading_divider.py]
+    K --> L[WeeklyPlan]
+
+    L --> M[reading_validator.py]
+    M --> N[plan_storage.py]
+    N --> O[plans/*.json]
 ```
 
 ## main.py
@@ -238,25 +243,25 @@ The verse-count JSON is considered the authoritative source.
 
 ## reading_divider.py
 
-(Not yet implemented)
-
 Uses AI to divide the week's reading into seven balanced daily assignments.
+
+Responsibilities:
+
+- Build the request for the AI service
+- Parse the AI response into a `WeeklyPlan`
+- Retry attempts until the result validates successfully
 
 ---
 
 ## reading_validator.py
 
-(Not yet implemented)
+Validates generated plans to ensure they contain exactly seven daily readings and that every verse is included exactly once without duplicates or out-of-range verses.
 
-Verifies AI-generated reading schedules.
+---
 
-Checks include:
+## plan_storage.py
 
-- Exactly seven days
-- No skipped verses
-- No duplicate verses
-- No invalid verses
-- All verses accounted for
+Saves weekly plans to JSON files in the `plans` directory and loads them when needed.
 
 ---
 
