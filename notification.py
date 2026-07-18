@@ -21,7 +21,7 @@ def send_notification(
             send_email(subject, message)
 
         elif method == "sms":
-            send_sms(message)
+            send_sms(subject, message)
 
         else:
             print(

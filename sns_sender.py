@@ -10,7 +10,7 @@ from config_loader import load_config
 load_dotenv()
 
 
-def send_sms(message: str) -> None:
+def send_sms(title: str, message: str) -> None:
     """
     Sends an SMS message using AWS SNS.
     """
@@ -37,10 +37,15 @@ def send_sms(message: str) -> None:
         region_name=config["aws_region"],
     )
 
+    sms_message = (
+        f"{title}\n\n"
+        f"{message}"
+    )
+
     try:
         response = sns.publish(
             PhoneNumber=phone_number,
-            Message=message,
+            Message=sms_message,
         )
 
     except ClientError as error:

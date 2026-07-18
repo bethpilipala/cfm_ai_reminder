@@ -44,7 +44,6 @@ def create_daily_message() -> tuple[str, str]:
     reading_text = "\n".join(passages)
 
     message = (
-        f"{reminder.title}\n\n"
         f"{reminder.body}\n\n"
         f"📖 Today's Reading:\n"
         f"{reading_text}"
