@@ -68,3 +68,30 @@ class WeeklyPlan:
     chapters: list[ChapterInfo] = field(default_factory=list)
     readings: list[DailyReading] = field(default_factory=list)
     reminders: list[Reminder] = field(default_factory=list)
+
+    def get_reading(self, day: int) -> DailyReading:
+        """
+        Returns the reading for a specific day.
+        """
+
+        for reading in self.readings:
+            if reading.day == day:
+                return reading
+
+        raise ValueError(
+            f"No reading found for day {day}."
+        )
+
+
+    def get_reminder(self, day: int) -> Reminder:
+        """
+        Returns the reminder for a specific day.
+        """
+
+        for reminder in self.reminders:
+            if reminder.day == day:
+                return reminder
+
+        raise ValueError(
+            f"No reminder found for day {day}."
+        )
