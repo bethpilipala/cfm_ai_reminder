@@ -80,7 +80,7 @@
                     "end_verse": 41
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/16?lang=eng"
         },
         {
             "day": 2,
@@ -92,7 +92,7 @@
                     "end_verse": 37
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
         },
         {
             "day": 3,
@@ -102,37 +102,37 @@
                     "chapter": 19,
                     "start_verse": 1,
                     "end_verse": 37
-                },
-                {
-                    "book": "2 Kings",
-                    "chapter": 20,
-                    "start_verse": 1,
-                    "end_verse": 21
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/19?lang=eng"
         },
         {
             "day": 4,
             "passages": [
                 {
                     "book": "2 Kings",
+                    "chapter": 20,
+                    "start_verse": 1,
+                    "end_verse": 21
+                },
+                {
+                    "book": "2 Kings",
                     "chapter": 21,
                     "start_verse": 1,
                     "end_verse": 26
-                },
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/20?lang=eng"
+        },
+        {
+            "day": 5,
+            "passages": [
                 {
                     "book": "2 Kings",
                     "chapter": 22,
                     "start_verse": 1,
                     "end_verse": 20
-                }
-            ],
-            "scripture_url": ""
-        },
-        {
-            "day": 5,
-            "passages": [
+                },
                 {
                     "book": "2 Kings",
                     "chapter": 23,
@@ -140,7 +140,7 @@
                     "end_verse": 37
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng"
         },
         {
             "day": 6,
@@ -152,7 +152,7 @@
                     "end_verse": 20
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng"
         },
         {
             "day": 7,
@@ -164,7 +164,7 @@
                     "end_verse": 30
                 }
             ],
-            "scripture_url": ""
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/25?lang=eng"
         }
     ],
     "reminders": []

@@ -3,6 +3,7 @@ import json
 from ai_client import generate_json
 from prompt_loader import load_prompt
 from reading_validator import validate_reading_plan
+from scripture_url import build_scripture_url
 
 from models import (
     ChapterInfo,
@@ -137,6 +138,9 @@ def parse_response(
             DailyReading(
                 day=day_number,
                 passages=passages,
+                scripture_url=build_scripture_url(
+                    passages
+                ),
             )
         )
 
