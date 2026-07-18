@@ -13,5 +13,6 @@
     },
 
     "timezone": "America/Denver",
-    "notificationTime": "08:00"
+    "notificationTime": "08:00",
+    "aws_region": "us-east-1"
 }

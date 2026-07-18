@@ -2,6 +2,7 @@ from datetime import date
 
 from plan_storage import load_current_plan
 from utils import week_start
+from notification import send_sms
 
 
 def get_day_number() -> int:
@@ -42,20 +43,37 @@ def create_daily_message() -> str:
 
     reading_text = "\n".join(passages)
 
-    return (
+    message = (
         f"{reminder.title}\n\n"
         f"{reminder.body}\n\n"
         f"📖 Today's Reading:\n"
-        f"{reading_text}\n\n"
-        f"🔗 {reading.scripture_url}"
+        f"{reading_text}"
     )
+
+    if reading.scripture_url:
+        message += (
+            "\n\n"
+            f"🔗 {reading.scripture_url}"
+        )
+
+    return message
 
 
 def send_daily_reminder():
+    """
+    Creates and sends today's reminder.
+    """
 
     message = create_daily_message()
 
+    print()
+    print("Message:")
+    print("----------------")
     print(message)
+    print("----------------")
+    print()
+
+    send_sms(message)
 
 
 if __name__ == "__main__":
