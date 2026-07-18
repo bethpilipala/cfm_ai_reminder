@@ -25,6 +25,12 @@ def send_sms(message: str) -> None:
         raise RuntimeError(
             "PHONE_NUMBER was not found in environment variables."
         )
+    
+    if os.getenv("AWS_ACCESS_KEY_ID") is None:
+        raise RuntimeError(
+            "AWS credentials were not found. "
+            "Check your .env file."
+        )
 
     sns = boto3.client(
         "sns",
