@@ -5,3 +5,5 @@ __pycache__/
 
 # Configuration files
 config.json
+
+test/
