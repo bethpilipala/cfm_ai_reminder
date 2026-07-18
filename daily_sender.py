@@ -18,7 +18,10 @@ def get_day_number() -> int:
     ).days + 1
 
 
-def send_daily_reminder():
+def create_daily_message() -> str:
+    """
+    Creates the message that will eventually be sent.
+    """
 
     plan = load_current_plan()
 
@@ -27,26 +30,32 @@ def send_daily_reminder():
     reading = plan.get_reading(day)
     reminder = plan.get_reminder(day)
 
-    print()
-    print("Today's Come, Follow Me Reminder")
-    print("--------------------------------")
-    print()
-
-    print(reminder.title)
-    print()
-
-    print(reminder.body)
-    print()
-
-    print("Today's Reading:")
+    passages = []
 
     for passage in reading.passages:
-        print(
+        passages.append(
             f"{passage.book} "
             f"{passage.chapter}:"
             f"{passage.start_verse}-"
             f"{passage.end_verse}"
         )
+
+    reading_text = "\n".join(passages)
+
+    return (
+        f"{reminder.title}\n\n"
+        f"{reminder.body}\n\n"
+        f"📖 Today's Reading:\n"
+        f"{reading_text}\n\n"
+        f"🔗 {reading.scripture_url}"
+    )
+
+
+def send_daily_reminder():
+
+    message = create_daily_message()
+
+    print(message)
 
 
 if __name__ == "__main__":
