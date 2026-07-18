@@ -68,6 +68,8 @@ def send_daily_reminder():
     print()
     print("Message:")
     print("----------------")
+    print(subject)
+    print()
     print(message)
     print("----------------")
     print()
