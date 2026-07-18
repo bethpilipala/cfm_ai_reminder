@@ -5,7 +5,6 @@ from plan_storage import current_plan_exists, save_plan
 from reading_divider import divide_reading
 from reminder_generator import generate_reminders
 
-
 def main():
 
     if current_plan_exists():
@@ -24,31 +23,25 @@ def main():
 
     print()
 
-    print(f"Lesson     : {lesson.lesson_number}")
-    print(f"Year       : {lesson.year}")
-    print(f"Week       : {lesson.week.display}")
-    print(f"Start Date : {lesson.week.start}")
-    print(f"End Date   : {lesson.week.end}")
-    print(f"Title      : {lesson.title}")
-    print(f"Assignment : {lesson.scripture_assignment}")
+    print(
+        f"Lesson {lesson.lesson_number} "
+        f"({lesson.week.display}, {lesson.year})"
+    )
+    print(lesson.title)
+    print(lesson.scripture_assignment)
+
+    total_verses = sum(
+        chapter.verse_count or 0
+        for chapter in chapters
+    )
 
     print()
+    print(
+        f"Parsed {len(chapters)} chapters "
+        f"({total_verses} verses)"
+    )
 
-    print("Chapters:")
-
-    if not chapters:
-        print("  No scripture chapters.")
-    else:
-        for chapter in chapters:
-            print(
-                f"{chapter.book} "
-                f"{chapter.chapter} "
-                f"({chapter.verse_count} verses)"
-            )
-
-        print()
-
-
+    print()
     print("Generating reading plan...")
 
     try:
@@ -59,7 +52,9 @@ def main():
 
     except RuntimeError as error:
         print()
-        print(f"Error generating reading plan: {error}")
+        print(
+            f"Error generating reading plan:\n{error}"
+        )
         return
 
     print()
@@ -73,42 +68,63 @@ def main():
     except RuntimeError as error:
         print()
         print(
-            f"Error generating reminders: {error}"
+            f"Error generating reminders:\n{error}"
         )
         return
-
 
     save_plan(weekly_plan)
 
     print()
-    print("Weekly plan saved.")
+    print("✓ Weekly plan saved.")
 
     print()
-    print("Weekly Plan:")
+    print("Reading Schedule:")
 
     for reading in weekly_plan.readings:
-        print(f"Day {reading.day}:")
 
         if not reading.passages:
-            print("  No passages.")
+            summary = "No reading"
+
         else:
-            for passage in reading.passages:
-                print(
-                    f"  {passage.book} "
-                    f"{passage.chapter}:"
-                    f"{passage.start_verse}-"
-                    f"{passage.end_verse}"
+
+            first = reading.passages[0]
+            last = reading.passages[-1]
+
+            if (
+                first.book == last.book
+                and first.chapter == last.chapter
+            ):
+                summary = (
+                    f"{first.book} "
+                    f"{first.chapter}"
                 )
 
+            elif first.book == last.book:
+                summary = (
+                    f"{first.book} "
+                    f"{first.chapter}–{last.chapter}"
+                )
+
+            else:
+                summary = (
+                    f"{first.book} {first.chapter}"
+                    f" → "
+                    f"{last.book} {last.chapter}"
+                )
+
+        print(
+            f"  Day {reading.day}: {summary}"
+        )
+
     print()
-    print("Reminders:")
+    print("Reminder Titles:")
 
     for reminder in weekly_plan.reminders:
 
-        print()
-        print(f"Day {reminder.day}:")
-        print(f"Title: {reminder.title}")
-        print(reminder.body)
+        print(
+            f"  Day {reminder.day}: "
+            f"{reminder.title}"
+        )
 
 
 if __name__ == "__main__":
