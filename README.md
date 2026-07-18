@@ -60,6 +60,12 @@ flowchart TD
     L --> M[reading_validator.py]
     M --> N[plan_storage.py]
     N --> O[plans/*.json]
+
+    O --> P[daily_sender.py]
+    P --> Q[reminder_generator.py]
+    Q --> R[notification.py]
+    R --> S[email_sender.py]
+    R --> T[sns_sender.py]
 ```
 
 ## main.py
