@@ -1,5 +1,6 @@
 import os
 import json
+import time
 
 from google import genai
 from google.genai import types, errors
@@ -32,26 +33,51 @@ def generate_json(
         f"{json.dumps(request, indent=2, ensure_ascii=False)}"
     )
 
-    try:
-        response = _client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=full_prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                temperature=0.3,
-            ),
-        )
+    max_attempts = 5
 
-    except errors.ClientError as error:
-        if error.code == 400:
+    for attempt in range(1, max_attempts + 1):
+
+        try:
+            response = _client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=full_prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.3,
+                ),
+            )
+
+            break
+
+        except errors.ServerError as error:
+
+            if attempt == max_attempts:
+                raise RuntimeError(
+                    "Gemini server unavailable after "
+                    f"{max_attempts} attempts."
+                ) from error
+
+            wait_time = attempt * 2
+
+            print(
+                f"Gemini unavailable. "
+                f"Retrying in {wait_time} seconds..."
+            )
+
+            time.sleep(wait_time)
+
+
+        except errors.ClientError as error:
+
+            if error.code == 400:
+                raise RuntimeError(
+                    "Gemini API rejected the request. "
+                    "Check that your API key is valid."
+                ) from error
+
             raise RuntimeError(
-                "Gemini API rejected the request. "
-                "Check that your API key is valid."
+                "Gemini API request failed."
             ) from error
-
-        raise RuntimeError(
-            "Gemini API request failed."
-        ) from error
 
     print("\nGemini Response:")
     print(response.text)
