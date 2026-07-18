@@ -326,13 +326,14 @@ A quick reference for the main files in this repository:
 - `ai_client.py` — Sends requests to the Gemini API and parses JSON responses.
 - `config_loader.py` — Loads configuration settings and resolves the current Come, Follow Me manual URL.
 - `config.json` — Stores user-editable configuration values such as manual URLs and timing defaults.
-- `daily_sender.py` — Intended entry point for sending daily notifications.
+- `daily_sender.py` — Creates the daily reminder message for the current day and sends it through the configured notification methods.
+- `email_sender.py` — Sends reminder emails via SMTP using environment-based credentials.
 - `lesson_fetcher.py` — Downloads lesson HTML pages from the Church website.
 - `lesson_finder.py` — Finds the current week's lesson based on the available manual pages.
 - `lesson_parser.py` — Parses lesson HTML into structured lesson data.
 - `main.py` — Main script used to generate the current weekly reading plan.
 - `models.py` — Defines the dataclasses used throughout the pipeline.
-- `notification.py` — Placeholder module for notification delivery logic.
+- `notification.py` — Dispatches notifications using all configured delivery methods.
 - `plan_storage.py` — Saves and loads weekly reading plans to JSON files.
 - `prompt_loader.py` — Loads prompt templates from the `prompts` directory.
 - `reading_divider.py` — Uses AI to divide the week's reading into seven daily assignments.
@@ -340,6 +341,8 @@ A quick reference for the main files in this repository:
 - `reminder_generator.py` — Planned module for generating reminder messages.
 - `requirements.txt` — Python dependencies required by the project.
 - `scripture_parser.py` — Parses scripture assignments into structured chapter data.
+- `scripture_url.py` — Helps resolve scripture URLs for daily readings.
+- `sns_sender.py` — Sends reminder SMS messages through AWS SNS.
 - `utils.py` — Shared helper functions used across the project.
 - `verse_lookup.py` — Adds verse counts to parsed chapter information.
 - `weekly_pipeline.py` — Placeholder for the broader weekly-processing pipeline.
