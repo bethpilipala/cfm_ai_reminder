@@ -27,11 +27,11 @@ The project combines deterministic code with AI:
 
 ✅ Reading validation
 
-⬜ AI reminder generation
+✅ AI reminder generation
 
 ✅ Weekly plan storage
 
-⬜ SMS notifications
+✅ SMS notifications
 
 ⬜ Weekly scheduler
 
@@ -267,25 +267,49 @@ Saves weekly plans to JSON files in the `plans` directory and loads them when ne
 
 ## reminder_generator.py
 
-(Not yet implemented)
-
 Uses AI to generate daily reading reminders.
+
+Responsibilities:
+
+- Build reminder content for each day of the week
+- Use the current reading plan and weekly lesson context
+- Produce title/body content for notification delivery
 
 ---
 
-## storage.py
+## daily_sender.py
 
-(Not yet implemented)
+Creates the daily reminder message for the current day and sends it using the configured notification methods.
 
-Saves and loads generated weekly reading plans.
+Responsibilities:
+
+- Determine today’s day number within the current CFM week
+- Load the current weekly plan
+- Build the subject and message body
+- Send the notification through the selected delivery channels
 
 ---
 
 ## notification.py
 
-(Not yet implemented)
+Sends the daily reminder using all configured notification methods.
 
-Sends the daily reminder using the selected notification service.
+Responsibilities:
+
+- Load the configured notification methods from config
+- Dispatch to email or SMS senders as appropriate
+
+---
+
+## email_sender.py
+
+Sends reminder emails via SMTP using environment-based credentials.
+
+---
+
+## sns_sender.py
+
+Sends reminder SMS messages through AWS SNS.
 
 ---
 
