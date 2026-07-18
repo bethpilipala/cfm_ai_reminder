@@ -77,7 +77,7 @@
                     "book": "2 Kings",
                     "chapter": 17,
                     "start_verse": 1,
-                    "end_verse": 23
+                    "end_verse": 41
                 }
             ],
             "scripture_url": ""
@@ -85,12 +85,6 @@
         {
             "day": 2,
             "passages": [
-                {
-                    "book": "2 Kings",
-                    "chapter": 17,
-                    "start_verse": 24,
-                    "end_verse": 41
-                },
                 {
                     "book": "2 Kings",
                     "chapter": 18,
@@ -143,7 +137,7 @@
                     "book": "2 Kings",
                     "chapter": 23,
                     "start_verse": 1,
-                    "end_verse": 20
+                    "end_verse": 30
                 }
             ],
             "scripture_url": ""
@@ -154,7 +148,7 @@
                 {
                     "book": "2 Kings",
                     "chapter": 23,
-                    "start_verse": 21,
+                    "start_verse": 31,
                     "end_verse": 37
                 },
                 {

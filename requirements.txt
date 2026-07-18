@@ -4,3 +4,4 @@ python-dateutil
 openai
 boto3
 google-genai
+python-dotenv

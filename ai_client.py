@@ -1,14 +1,21 @@
+import os
 import json
 
 from google import genai
 from google.genai import types, errors
 
-from config_loader import get_api_key
+from dotenv import load_dotenv
 
+load_dotenv()
 
-_client = genai.Client(
-    api_key=get_api_key()
-)
+api_key = os.getenv("GEMINI_API_KEY")
+
+if api_key is None:
+    raise RuntimeError(
+        "GEMINI_API_KEY was not found in the environment."
+    )
+
+_client = genai.Client(api_key=api_key)
 
 
 def generate_json(
