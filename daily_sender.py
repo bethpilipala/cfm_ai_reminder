@@ -1,8 +1,8 @@
 from datetime import date
 
+from notification import send_notification
 from plan_storage import load_current_plan
 from utils import week_start
-from notification import send_sms
 
 
 def get_day_number() -> int:
@@ -19,9 +19,9 @@ def get_day_number() -> int:
     ).days + 1
 
 
-def create_daily_message() -> str:
+def create_daily_message() -> tuple[str, str]:
     """
-    Creates the message that will eventually be sent.
+    Creates the subject and body for today's notification.
     """
 
     plan = load_current_plan()
@@ -56,7 +56,7 @@ def create_daily_message() -> str:
             f"🔗 {reading.scripture_url}"
         )
 
-    return message
+    return reminder.title, message
 
 
 def send_daily_reminder():
@@ -64,7 +64,7 @@ def send_daily_reminder():
     Creates and sends today's reminder.
     """
 
-    message = create_daily_message()
+    subject, message = create_daily_message()
 
     print()
     print("Message:")
@@ -73,7 +73,10 @@ def send_daily_reminder():
     print("----------------")
     print()
 
-    send_sms(message)
+    send_notification(
+        subject,
+        message,
+    )
 
 
 if __name__ == "__main__":
