@@ -2,6 +2,7 @@ import json
 
 from ai_client import generate_json
 from prompt_loader import load_prompt
+from reading_validator import validate_reading_plan
 
 from models import (
     ChapterInfo,
@@ -11,6 +12,7 @@ from models import (
     WeeklyPlan,
 )
 
+MAX_ATTEMPTS = 3
 
 MOCK_AI_RESPONSE = {
     "days": [
@@ -108,8 +110,15 @@ def parse_response(
         chapters=chapters,
     )
 
+    try:
+        days = response["days"]
+    except KeyError:
+        raise RuntimeError(
+            "AI response did not contain a 'days' field."
+        )
+
     for day_number, day in enumerate(
-        response["days"],
+        days,
         start=1,
     ):
         passages = []
@@ -139,10 +148,8 @@ def divide_reading(
     chapters: list[ChapterInfo],
 ) -> WeeklyPlan:
     """
-    Divides a scripture assignment into a weekly reading plan.
-
-    Currently uses a mock AI response.
-    This will later be replaced with a real AI API call.
+    Uses AI to divide the week's reading into seven daily readings.
+    Retries up to MAX_ATTEMPTS if validation fails.
     """
 
     request = build_request(
@@ -152,13 +159,43 @@ def divide_reading(
 
     prompt = load_prompt("divide_reading")
 
-    response = generate_json(
-        prompt,
-        request,
-    )
+    last_errors: list[str] = []
 
-    return parse_response(
-        lesson,
-        chapters,
-        response,
+    for attempt in range(
+        1,
+        MAX_ATTEMPTS + 1,
+    ):
+
+        print(f"\nAI Attempt {attempt}/{MAX_ATTEMPTS}")
+
+        response = generate_json(
+            prompt,
+            request,
+        )
+
+        plan = parse_response(
+            lesson,
+            chapters,
+            response,
+        )
+
+        errors = validate_reading_plan(plan)
+
+        if not errors:
+
+            print("✓ Reading plan validated successfully.")
+
+            return plan
+
+        last_errors = errors
+
+        print("Validation failed:")
+
+        for error in errors:
+            print(f"  • {error}")
+
+    raise RuntimeError(
+        "Unable to generate a valid reading plan after "
+        f"{MAX_ATTEMPTS} attempts.\n\n"
+        + "\n".join(last_errors)
     )

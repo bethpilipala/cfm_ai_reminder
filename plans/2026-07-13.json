@@ -102,6 +102,12 @@
                     "chapter": 19,
                     "start_verse": 1,
                     "end_verse": 37
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 20,
+                    "start_verse": 1,
+                    "end_verse": 21
                 }
             ],
             "scripture_url": ""
@@ -111,15 +117,15 @@
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 20,
-                    "start_verse": 1,
-                    "end_verse": 21
-                },
-                {
-                    "book": "2 Kings",
                     "chapter": 21,
                     "start_verse": 1,
                     "end_verse": 26
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 22,
+                    "start_verse": 1,
+                    "end_verse": 20
                 }
             ],
             "scripture_url": ""
@@ -129,15 +135,9 @@
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 22,
-                    "start_verse": 1,
-                    "end_verse": 20
-                },
-                {
-                    "book": "2 Kings",
                     "chapter": 23,
                     "start_verse": 1,
-                    "end_verse": 30
+                    "end_verse": 37
                 }
             ],
             "scripture_url": ""
@@ -145,12 +145,6 @@
         {
             "day": 6,
             "passages": [
-                {
-                    "book": "2 Kings",
-                    "chapter": 23,
-                    "start_verse": 31,
-                    "end_verse": 37
-                },
                 {
                     "book": "2 Kings",
                     "chapter": 24,
