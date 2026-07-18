@@ -77,7 +77,7 @@
                     "book": "2 Kings",
                     "chapter": 17,
                     "start_verse": 1,
-                    "end_verse": 41
+                    "end_verse": 23
                 }
             ],
             "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/16?lang=eng"
@@ -87,97 +87,271 @@
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 18,
-                    "start_verse": 1,
-                    "end_verse": 37
+                    "chapter": 17,
+                    "start_verse": 24,
+                    "end_verse": 41
                 },
                 {
                     "book": "2 Kings",
-                    "chapter": 19,
+                    "chapter": 18,
                     "start_verse": 1,
-                    "end_verse": 37
+                    "end_verse": 12
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/17?lang=eng"
         },
         {
             "day": 3,
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 20,
-                    "start_verse": 1,
-                    "end_verse": 21
+                    "chapter": 18,
+                    "start_verse": 13,
+                    "end_verse": 37
                 },
                 {
                     "book": "2 Kings",
-                    "chapter": 21,
+                    "chapter": 19,
                     "start_verse": 1,
-                    "end_verse": 26
+                    "end_verse": 19
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/20?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
         },
         {
             "day": 4,
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 22,
-                    "start_verse": 1,
-                    "end_verse": 20
+                    "chapter": 19,
+                    "start_verse": 20,
+                    "end_verse": 37
                 },
                 {
                     "book": "2 Kings",
-                    "chapter": 23,
+                    "chapter": 20,
                     "start_verse": 1,
-                    "end_verse": 7
+                    "end_verse": 21
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/19?lang=eng"
         },
         {
             "day": 5,
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 23,
-                    "start_verse": 8,
-                    "end_verse": 37
+                    "chapter": 21,
+                    "start_verse": 1,
+                    "end_verse": 26
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 22,
+                    "start_verse": 1,
+                    "end_verse": 20
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/21?lang=eng"
         },
         {
             "day": 6,
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 24,
+                    "chapter": 23,
                     "start_verse": 1,
-                    "end_verse": 20
+                    "end_verse": 37
                 },
                 {
                     "book": "2 Kings",
-                    "chapter": 25,
+                    "chapter": 24,
                     "start_verse": 1,
-                    "end_verse": 5
+                    "end_verse": 7
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng"
         },
         {
             "day": 7,
             "passages": [
                 {
                     "book": "2 Kings",
+                    "chapter": 24,
+                    "start_verse": 8,
+                    "end_verse": 20
+                },
+                {
+                    "book": "2 Kings",
                     "chapter": 25,
-                    "start_verse": 6,
+                    "start_verse": 1,
                     "end_verse": 30
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/25?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng"
         }
     ],
-    "reminders": []
+    "reminders": [
+        {
+            "day": 1,
+            "reading": {
+                "day": 1,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 16,
+                        "start_verse": 1,
+                        "end_verse": 20
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 17,
+                        "start_verse": 1,
+                        "end_verse": 23
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/16?lang=eng"
+            },
+            "title": "Choose the Lord",
+            "body": "As you read about the choices made in 2 Kings 16-17, consider the consequences of turning away from the Lord. Let these accounts inspire you to draw closer to Him. Remember the blessings that come from choosing to follow God's path."
+        },
+        {
+            "day": 2,
+            "reading": {
+                "day": 2,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 17,
+                        "start_verse": 24,
+                        "end_verse": 41
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 18,
+                        "start_verse": 1,
+                        "end_verse": 12
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/17?lang=eng"
+            },
+            "title": "Trust in the Lord",
+            "body": "Today's reading in 2 Kings 17-18 highlights the stark difference between divided loyalties and wholehearted devotion to God. As you study Hezekiah's example, notice how his trust in the Lord brought blessings and success. May his story encourage you to place your full trust in the Savior."
+        },
+        {
+            "day": 3,
+            "reading": {
+                "day": 3,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 18,
+                        "start_verse": 13,
+                        "end_verse": 37
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 19,
+                        "start_verse": 1,
+                        "end_verse": 19
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
+            },
+            "title": "Pray in Times of Trouble",
+            "body": "In 2 Kings 18-19, we see Hezekiah facing immense pressure and turning to the Lord in humble prayer. His heartfelt plea acknowledges God's supreme power and asks for deliverance. As you read, consider how you can bring your own challenges to the Lord, trusting in His ability to hear and answer."
+        },
+        {
+            "day": 4,
+            "reading": {
+                "day": 4,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 19,
+                        "start_verse": 20,
+                        "end_verse": 37
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 20,
+                        "start_verse": 1,
+                        "end_verse": 21
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/19?lang=eng"
+            },
+            "title": "The Lord Delivers and Heals",
+            "body": "Today's reading in 2 Kings 19-20 beautifully illustrates the Lord's power to deliver His people and heal the sick. Witness how Hezekiah's faith and prayer brought about miraculous intervention and an extension of his life. Let these accounts strengthen your belief in the Lord's compassion and His ability to bless you."
+        },
+        {
+            "day": 5,
+            "reading": {
+                "day": 5,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 21,
+                        "start_verse": 1,
+                        "end_verse": 26
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 22,
+                        "start_verse": 1,
+                        "end_verse": 20
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/21?lang=eng"
+            },
+            "title": "Repentance and God's Word",
+            "body": "As you read 2 Kings 21-22, observe the stark contrast between Manasseh's wickedness and Josiah's righteous reign. Josiah's humble response to finding the book of the law led to profound repentance and reform. May his example inspire you to diligently study the scriptures and turn your heart fully to the Lord."
+        },
+        {
+            "day": 6,
+            "reading": {
+                "day": 6,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 23,
+                        "start_verse": 1,
+                        "end_verse": 37
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 24,
+                        "start_verse": 1,
+                        "end_verse": 7
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng"
+            },
+            "title": "Keep God's Covenants",
+            "body": "In 2 Kings 23, Josiah leads his people in renewing their covenant with the Lord and cleansing the land of idolatry. His dedication to God's law is a powerful example for us all. As you read, consider the blessings that come from faithfully keeping your covenants and striving for personal righteousness."
+        },
+        {
+            "day": 7,
+            "reading": {
+                "day": 7,
+                "passages": [
+                    {
+                        "book": "2 Kings",
+                        "chapter": 24,
+                        "start_verse": 8,
+                        "end_verse": 20
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 25,
+                        "start_verse": 1,
+                        "end_verse": 30
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng"
+            },
+            "title": "Consequences and Mercy",
+            "body": "Today's reading in 2 Kings 24-25 recounts the tragic fall of Jerusalem and the captivity of Judah, a solemn reminder of the consequences of disobedience. Yet, even amidst destruction, we see a glimpse of mercy in Jehoiachin's release. Let these accounts deepen your understanding of God's justice and His enduring love for His children."
+        }
+    ]
 }

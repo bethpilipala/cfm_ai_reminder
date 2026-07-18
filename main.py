@@ -3,6 +3,7 @@ from scripture_parser import parse_scripture_assignment
 from verse_lookup import add_verse_counts
 from plan_storage import current_plan_exists, save_plan
 from reading_divider import divide_reading
+from reminder_generator import generate_reminders
 
 
 def main():
@@ -61,6 +62,22 @@ def main():
         print(f"Error generating reading plan: {error}")
         return
 
+    print()
+    print("Generating reminders...")
+
+    try:
+        weekly_plan = generate_reminders(
+            weekly_plan
+        )
+
+    except RuntimeError as error:
+        print()
+        print(
+            f"Error generating reminders: {error}"
+        )
+        return
+
+
     save_plan(weekly_plan)
 
     print()
@@ -82,6 +99,16 @@ def main():
                     f"{passage.start_verse}-"
                     f"{passage.end_verse}"
                 )
+
+    print()
+    print("Reminders:")
+
+    for reminder in weekly_plan.reminders:
+
+        print()
+        print(f"Day {reminder.day}:")
+        print(f"Title: {reminder.title}")
+        print(reminder.body)
 
 
 if __name__ == "__main__":
