@@ -24,22 +24,29 @@ def send_email(
         "EMAIL_APP_PASSWORD"
     )
 
-    recipient = os.getenv(
-        "EMAIL_RECIPIENT"
-    )
+    recipients = os.getenv(
+        "EMAIL_RECIPIENTS",
+        ""
+    ).split(",")
 
-    if not sender or not password or not recipient:
+    recipients = [
+        email.strip()
+        for email in recipients
+        if email.strip()
+    ]
+
+    if not sender or not password or not recipients:
         raise RuntimeError(
             "Email environment variables are missing."
         )
 
-    message = EmailMessage()
+    email_message = EmailMessage()
 
-    message["Subject"] = subject
-    message["From"] = sender
-    message["To"] = recipient
+    email_message["Subject"] = subject
+    email_message["From"] = sender
+    email_message["Bcc"] = ", ".join(recipients)
 
-    message.set_content(body)
+    email_message.set_content(body)
 
     with smtplib.SMTP(
         "smtp.gmail.com",
@@ -53,6 +60,6 @@ def send_email(
             password,
         )
 
-        smtp.send_message(message)
+        smtp.send_message(email_message)
 
     print("Email sent successfully.")
