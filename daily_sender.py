@@ -1,7 +1,11 @@
 from datetime import date
 
 from notification import send_notification
-from plan_storage import load_current_plan
+from plan_storage import (
+    current_plan_exists,
+    load_current_plan,
+)
+from weekly_pipeline import generate_weekly_plan
 from utils import week_start
 
 
@@ -24,7 +28,10 @@ def create_daily_message() -> tuple[str, str]:
     Creates the subject and body for today's notification.
     """
 
-    plan = load_current_plan()
+    if current_plan_exists():
+        plan = load_current_plan()
+    else:
+        plan = generate_weekly_plan()
 
     day = get_day_number()
 

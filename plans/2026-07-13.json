@@ -72,6 +72,12 @@
                     "chapter": 16,
                     "start_verse": 1,
                     "end_verse": 20
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 17,
+                    "start_verse": 1,
+                    "end_verse": 23
                 }
             ],
             "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/16?lang=eng"
@@ -82,8 +88,14 @@
                 {
                     "book": "2 Kings",
                     "chapter": 17,
-                    "start_verse": 1,
+                    "start_verse": 24,
                     "end_verse": 41
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 18,
+                    "start_verse": 1,
+                    "end_verse": 16
                 }
             ],
             "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/17?lang=eng"
@@ -94,8 +106,14 @@
                 {
                     "book": "2 Kings",
                     "chapter": 18,
-                    "start_verse": 1,
+                    "start_verse": 17,
                     "end_verse": 37
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 19,
+                    "start_verse": 1,
+                    "end_verse": 19
                 }
             ],
             "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
@@ -106,8 +124,14 @@
                 {
                     "book": "2 Kings",
                     "chapter": 19,
-                    "start_verse": 1,
+                    "start_verse": 20,
                     "end_verse": 37
+                },
+                {
+                    "book": "2 Kings",
+                    "chapter": 20,
+                    "start_verse": 1,
+                    "end_verse": 21
                 }
             ],
             "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/19?lang=eng"
@@ -117,28 +141,22 @@
             "passages": [
                 {
                     "book": "2 Kings",
-                    "chapter": 20,
-                    "start_verse": 1,
-                    "end_verse": 21
-                },
-                {
-                    "book": "2 Kings",
                     "chapter": 21,
                     "start_verse": 1,
                     "end_verse": 26
-                }
-            ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/20?lang=eng"
-        },
-        {
-            "day": 6,
-            "passages": [
+                },
                 {
                     "book": "2 Kings",
                     "chapter": 22,
                     "start_verse": 1,
                     "end_verse": 20
-                },
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/21?lang=eng"
+        },
+        {
+            "day": 6,
+            "passages": [
                 {
                     "book": "2 Kings",
                     "chapter": 23,
@@ -146,7 +164,7 @@
                     "end_verse": 37
                 }
             ],
-            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng"
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng"
         },
         {
             "day": 7,
@@ -178,12 +196,18 @@
                         "chapter": 16,
                         "start_verse": 1,
                         "end_verse": 20
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 17,
+                        "start_verse": 1,
+                        "end_verse": 23
                     }
                 ],
                 "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/16?lang=eng"
             },
-            "title": "Ahaz's 'Bright' Ideas 🤔💡",
-            "body": "Ever had a problem and thought, 'I got this!' only to make it way worse? Turns out, King Ahaz had a similar vibe when facing a crisis. Instead of trusting the Lord, he went full DIY disaster, even messing with the temple altar! See what happens when we try to fix things our own way in today's read."
+            "title": "Bad Choices, Big Consequences 😬🔥",
+            "body": "Ever feel like you're trying to solve a problem by doing the *exact opposite* of what you know is right? Turns out, some ancient kings had that same vibe. Ahaz and Israel kept making choices that led them further from God's help. Dive into today's chapters to see how those decisions played out."
         },
         {
             "day": 2,
@@ -193,14 +217,20 @@
                     {
                         "book": "2 Kings",
                         "chapter": 17,
-                        "start_verse": 1,
+                        "start_verse": 24,
                         "end_verse": 41
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 18,
+                        "start_verse": 1,
+                        "end_verse": 16
                     }
                 ],
                 "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/17?lang=eng"
             },
-            "title": "Oops, Did It Again! 🤦‍♀️📉",
-            "body": "Imagine thinking you can ignore all the warning signs, keep doing your own thing, and expect a different outcome. Funny enough, ancient Israel tried that strategy for a long time! Today's reading shows us the heartbreaking consequences of repeatedly turning away from the Lord's counsel. Dive in to see how their story unfolds."
+            "title": "Spiritual Multitasking? 🤔🦁",
+            "body": "You'd never guess, but some folks in ancient Samaria thought they could worship God *and* their own idols at the same time. Talk about spiritual multitasking! Meanwhile, King Hezekiah was like, 'Nah, we're going all in on God.' See the wild contrast and Hezekiah's bold moves in today's reading!"
         },
         {
             "day": 3,
@@ -210,14 +240,20 @@
                     {
                         "book": "2 Kings",
                         "chapter": 18,
-                        "start_verse": 1,
+                        "start_verse": 17,
                         "end_verse": 37
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 19,
+                        "start_verse": 1,
+                        "end_verse": 19
                     }
                 ],
                 "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/18?lang=eng"
             },
-            "title": "When Trust Gets Tested 🛡️😬",
-            "body": "You know that feeling when you're doing great, trusting the Lord, and then suddenly a HUGE problem shows up at your doorstep? King Hezekiah was totally rocking it, cleaning up the kingdom and trusting God. But then a massive army rolls up, and for a hot second, he tries to buy his way out. See how he handles the pressure today!"
+            "title": "When Bullies Talk Big 🗣️👑",
+            "body": "Ever had someone talk a *lot* of trash, making you feel small and helpless? That's exactly what Sennacherib's general did to Hezekiah and Judah. Plot twist: Hezekiah didn't argue back. Instead, he went straight to the Lord in humble prayer. Find out what happens next in today's powerful chapters!"
         },
         {
             "day": 4,
@@ -227,14 +263,20 @@
                     {
                         "book": "2 Kings",
                         "chapter": 19,
-                        "start_verse": 1,
+                        "start_verse": 20,
                         "end_verse": 37
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 20,
+                        "start_verse": 1,
+                        "end_verse": 21
                     }
                 ],
                 "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/19?lang=eng"
             },
-            "title": "Plot Twist: God's Got This! ✨😇",
-            "body": "Ever been in a situation where things look absolutely hopeless, you've tried everything, and you're just like, 'Okay, God, it's all you'? That's exactly where Hezekiah finds himself today. The surprising part is how the Lord steps in with a dramatic, jaw-dropping rescue. Get ready for some divine intervention in today's chapters!"
+            "title": "Miracles & Oops Moments ✨🤦‍♂️",
+            "body": "After God pulled off an epic rescue for Hezekiah, you'd think everything would be smooth sailing, right? Turns out, even the best of us have our 'oops' moments. Hezekiah gets a miraculous extension on life, but then makes a choice that hints at future trouble. See how quickly things can shift in today's reading!"
         },
         {
             "day": 5,
@@ -243,21 +285,21 @@
                 "passages": [
                     {
                         "book": "2 Kings",
-                        "chapter": 20,
-                        "start_verse": 1,
-                        "end_verse": 21
-                    },
-                    {
-                        "book": "2 Kings",
                         "chapter": 21,
                         "start_verse": 1,
                         "end_verse": 26
+                    },
+                    {
+                        "book": "2 Kings",
+                        "chapter": 22,
+                        "start_verse": 1,
+                        "end_verse": 20
                     }
                 ],
-                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/20?lang=eng"
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/21?lang=eng"
             },
-            "title": "Hezekiah's Oops Moment 🤦‍♂️👑",
-            "body": "After a miraculous recovery and a huge victory, you'd think King Hezekiah would be on top of the world, right? Well, he gets a little too comfortable and makes a questionable decision that has big consequences down the road. It's a classic human moment of pride after success. Check out his story and the reigns that follow today."
+            "title": "From Worst to Wow! 🤯📜",
+            "body": "Imagine going from a king who literally sacrificed his kids to one who tears his clothes in repentance! Manasseh was a mess, but then Josiah steps up. The surprising part is when they rediscover the Book of the Law, and Josiah's reaction is everything. Get ready for some serious spiritual whiplash in today's chapters!"
         },
         {
             "day": 6,
@@ -266,21 +308,15 @@
                 "passages": [
                     {
                         "book": "2 Kings",
-                        "chapter": 22,
-                        "start_verse": 1,
-                        "end_verse": 20
-                    },
-                    {
-                        "book": "2 Kings",
                         "chapter": 23,
                         "start_verse": 1,
                         "end_verse": 37
                     }
                 ],
-                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng"
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/23?lang=eng"
             },
-            "title": "Lost & Found: The Best Book! 📖✨",
-            "body": "Imagine cleaning out your house and finding something incredibly valuable you totally forgot you had, something that changes everything! That's kind of what happens during King Josiah's reign when the Book of the Law is rediscovered. It sparks a massive spiritual revival and a kingdom-wide clean-up. Don't miss this inspiring read today!"
+            "title": "Josiah's Epic Cleanup! 🧹👑",
+            "body": "Ever tried to clean out a really, really messy room? Now imagine cleaning an entire *nation* from generations of idol worship and bad habits! That's Josiah's epic task today. He went all in, making covenants and destroying every last abomination. See his incredible dedication in today's reading!"
         },
         {
             "day": 7,
@@ -302,8 +338,8 @@
                 ],
                 "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/24?lang=eng"
             },
-            "title": "End of an Era 🏰😭",
-            "body": "You'd never guess how many chances a people can get before things finally fall apart, but Judah's story is a powerful lesson in consequences. Despite prophets and warnings, the kingdom faces its final, heartbreaking downfall today. It's a somber but important reminder of choices and their ultimate outcomes. Read the concluding chapters of 2 Kings."
+            "title": "Oops, We Did It Again 🤦‍♀️📉",
+            "body": "After all the warnings, all the prophets, and even Josiah's amazing efforts, turns out some people just don't learn. The final kings of Judah kept making choices that sealed their fate. It's a heartbreaking but powerful reminder of consequences. See the final chapters of the kingdom in today's reading."
         }
     ]
 }
