@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Transform: AWS::Serverless-2016-10-31
+
+Description: >
+  Come Follow Me AI Reminder Service
+
+Parameters:
+  EmailAddress:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cfm/email_address
+
+  EmailAppPassword:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cfm/email_app_password
+
+  EmailRecipients:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cfm/email_recipients
+
+  PhoneNumber:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cfm/phone_number
+
+Globals:
+  Function:
+    Timeout: 60
+    Runtime: python3.12
+    MemorySize: 256
+
+Resources:
+
+  DailyReminderFunction:
+    Type: AWS::Serverless::Function
+
+    Properties:
+      FunctionName: cfm-daily-reminder
+
+      CodeUri: .
+
+      Handler: lambda_handler.lambda_handler
+
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - Statement:
+            Effect: Allow
+            Action:
+              - sns:Publish
+            Resource: "*"
+
+      Environment:
+        Variables:
+          EMAIL_ADDRESS: !Ref EmailAddress
+          EMAIL_APP_PASSWORD: !Ref EmailAppPassword
+          EMAIL_RECIPIENTS: !Ref EmailRecipients
+          PHONE_NUMBER: !Ref PhoneNumber
+          PYTHONUNBUFFERED: "1"
