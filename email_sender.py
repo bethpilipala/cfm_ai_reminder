@@ -1,4 +1,3 @@
-import os
 import smtplib
 
 from email.message import EmailMessage
@@ -19,18 +18,15 @@ def send_email(
     """
 
     sender = get_secret(
-        "EMAIL_ADDRESS",
-        "/cfm/email_address",
+        "EMAIL_ADDRESS"
     )
 
     password = get_secret(
-        "EMAIL_APP_PASSWORD",
-        "/cfm/email_app_password",
+        "EMAIL_APP_PASSWORD"
     )
 
     recipients = get_secret(
-        "EMAIL_RECIPIENTS",
-        "/cfm/email_recipients",
+        "EMAIL_RECIPIENTS"
     ).split(",")
 
     recipients = [

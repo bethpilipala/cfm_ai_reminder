@@ -1,4 +1,3 @@
-import os
 import json
 import time
 
@@ -10,8 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 api_key = get_secret(
-    "GEMINI_API_KEY",
-    "/gemini/api_key",
+    "GEMINI_API_KEY"
 )
 
 if api_key is None:

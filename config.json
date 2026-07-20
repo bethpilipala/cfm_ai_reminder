@@ -15,6 +15,15 @@
     "timezone": "America/Denver",
     "notificationTime": "08:00",
     "aws_region": "us-east-1",
+
+    "aws_parameter_store": {
+        "EMAIL_ADDRESS": "/cfm/email_address",
+        "EMAIL_APP_PASSWORD": "/cfm/email_app_password",
+        "EMAIL_RECIPIENTS": "/cfm/email_recipients",
+        "PHONE_NUMBER": "/cfm/phone_number",
+        "GEMINI_API_KEY": "/gemini/api_key"
+    },
+    
     "notification_methods": [
         "email"
     ]

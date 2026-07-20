@@ -25,21 +25,21 @@ Resources:
 
       Policies:
         - AWSLambdaBasicExecutionRole
+        
         - Statement:
-          - Effect: Allow
+            Effect: Allow
             Action:
               - sns:Publish
+            Resource: "*"
+
+        - Statement:
+            Effect: Allow
+            Action:
               - ssm:GetParameter
-              - ssm:GetParameters
             Resource: "*"
 
       Environment:
         Variables:
-          EMAIL_ADDRESS_PARAM: "/cfm/email_address"
-          EMAIL_APP_PASSWORD_PARAM: "/cfm/email_app_password"
-          EMAIL_RECIPIENTS_PARAM: "/cfm/email_recipients"
-          PHONE_NUMBER_PARAM: "/cfm/phone_number"
-          GEMINI_API_KEY_PARAM: "/gemini/api_key"
           PYTHONUNBUFFERED: "1"
 
       Events:

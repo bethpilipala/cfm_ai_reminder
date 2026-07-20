@@ -19,8 +19,7 @@ def send_sms(title: str, message: str) -> None:
     config = load_config()
 
     phone_number = get_secret(
-        "PHONE_NUMBER",
-        "/cfm/phone_number",
+        "PHONE_NUMBER"
     )
 
     if phone_number is None:

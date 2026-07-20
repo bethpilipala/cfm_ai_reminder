@@ -1,10 +1,14 @@
 import os
 
-import boto3 #type: ignore
+import boto3  # type: ignore
 from dotenv import load_dotenv
+
+from config_loader import load_config
 
 
 load_dotenv()
+
+config = load_config()
 
 
 def running_in_lambda() -> bool:
@@ -21,7 +25,6 @@ def running_in_lambda() -> bool:
 
 def get_secret(
     env_name: str,
-    parameter_name: str,
 ) -> str:
     """
     Retrieves a secret.
@@ -30,13 +33,20 @@ def get_secret(
         Reads from .env
 
     AWS Lambda:
-        Reads from AWS Parameter Store
+        Reads from AWS Parameter Store.
     """
 
     if running_in_lambda():
 
+        parameter_name = (
+            config["aws"]
+                  ["parameter_store"]
+                  [env_name]
+        )
+
         ssm = boto3.client(
-            "ssm"
+            "ssm",
+            region_name=config["aws"]["region"],
         )
 
         response = ssm.get_parameter(
@@ -46,15 +56,11 @@ def get_secret(
 
         return response["Parameter"]["Value"]
 
-    else:
+    value = os.getenv(env_name)
 
-        value = os.getenv(
-            env_name
+    if value is None:
+        raise RuntimeError(
+            f"Missing environment variable: {env_name}"
         )
 
-        if value is None:
-            raise RuntimeError(
-                f"Missing environment variable: {env_name}"
-            )
-
-        return value
+    return value

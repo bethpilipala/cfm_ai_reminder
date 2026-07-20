@@ -1,0 +1,304 @@
+{
+    "lesson": {
+        "lesson_number": 30,
+        "week": {
+            "display": "July 20–26",
+            "start": "2026-07-20",
+            "end": "2026-07-26"
+        },
+        "title": "Our Eyes Are upon Thee",
+        "scripture_assignment": "2 Chronicles 14–20; 26; 30",
+        "lesson_url": "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/30?lang=eng",
+        "year": 2026
+    },
+    "chapters": [
+        {
+            "book": "2 Chronicles",
+            "chapter": 14,
+            "verse_count": 15
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 15,
+            "verse_count": 19
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 16,
+            "verse_count": 14
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 17,
+            "verse_count": 19
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 18,
+            "verse_count": 34
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 19,
+            "verse_count": 11
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 20,
+            "verse_count": 37
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 26,
+            "verse_count": 23
+        },
+        {
+            "book": "2 Chronicles",
+            "chapter": 30,
+            "verse_count": 27
+        }
+    ],
+    "readings": [
+        {
+            "day": 1,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 14,
+                    "start_verse": 1,
+                    "end_verse": 15
+                },
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 15,
+                    "start_verse": 1,
+                    "end_verse": 19
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/14?lang=eng"
+        },
+        {
+            "day": 2,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 16,
+                    "start_verse": 1,
+                    "end_verse": 14
+                },
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 17,
+                    "start_verse": 1,
+                    "end_verse": 19
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/16?lang=eng"
+        },
+        {
+            "day": 3,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 18,
+                    "start_verse": 1,
+                    "end_verse": 34
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/18?lang=eng"
+        },
+        {
+            "day": 4,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 19,
+                    "start_verse": 1,
+                    "end_verse": 11
+                },
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 20,
+                    "start_verse": 1,
+                    "end_verse": 12
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/19?lang=eng"
+        },
+        {
+            "day": 5,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 20,
+                    "start_verse": 13,
+                    "end_verse": 37
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/20?lang=eng"
+        },
+        {
+            "day": 6,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 26,
+                    "start_verse": 1,
+                    "end_verse": 23
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/26?lang=eng"
+        },
+        {
+            "day": 7,
+            "passages": [
+                {
+                    "book": "2 Chronicles",
+                    "chapter": 30,
+                    "start_verse": 1,
+                    "end_verse": 27
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/30?lang=eng"
+        }
+    ],
+    "reminders": [
+        {
+            "day": 1,
+            "reading": {
+                "day": 1,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 14,
+                        "start_verse": 1,
+                        "end_verse": 15
+                    },
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 15,
+                        "start_verse": 1,
+                        "end_verse": 19
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/14?lang=eng"
+            },
+            "title": "Peace, Then Panic? 😅⚔️",
+            "body": "You'd never guess that after years of peace, a million-man army would show up at your doorstep, right? King Asa probably felt that 'oh no' moment, but turns out, his secret weapon was crying out to the Lord. Funny how relying on God *before* things get wild can make all the difference. Go see how Asa handled it today!"
+        },
+        {
+            "day": 2,
+            "reading": {
+                "day": 2,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 16,
+                        "start_verse": 1,
+                        "end_verse": 14
+                    },
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 17,
+                        "start_verse": 1,
+                        "end_verse": 19
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/16?lang=eng"
+            },
+            "title": "Oops, Forgot That Lesson 🤦‍♂️👑",
+            "body": "Remember King Asa from yesterday, who totally crushed it with God's help? Well, plot twist: today, he faces a new threat and decides to call a human ally instead of the Lord. Imagine thinking, 'Nah, I got this one myself.' We've all been there, right? See what happens when we forget who's *really* in charge in today's reading."
+        },
+        {
+            "day": 3,
+            "reading": {
+                "day": 3,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 18,
+                        "start_verse": 1,
+                        "end_verse": 34
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/18?lang=eng"
+            },
+            "title": "Bad Friends, Bad Advice 😬⚔️",
+            "body": "King Jehoshaphat, who was doing so well, decides to buddy up with King Ahab (not exactly a role model). Funny enough, when Jehoshaphat asks for divine counsel, 400 prophets say 'go for it!' but one guy, Micaiah, tells the truth. Turns out, ignoring the obvious warning signs can lead to some pretty wild consequences. See how this royal bromance goes sideways in today's chapters!"
+        },
+        {
+            "day": 4,
+            "reading": {
+                "day": 4,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 19,
+                        "start_verse": 1,
+                        "end_verse": 11
+                    },
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 20,
+                        "start_verse": 1,
+                        "end_verse": 12
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/19?lang=eng"
+            },
+            "title": "When You've Got Nothing 🤷‍♀️🙏",
+            "body": "After his little adventure with Ahab, Jehoshaphat gets a stern talking-to. He cleans up his act, then—plot twist—three massive armies show up! You'd never guess his next move: he gathers *everyone* to fast and pray, admitting they have 'no might' and 'know not what to do.' Talk about a relatable moment when you're totally out of options! See his epic prayer in today's reading."
+        },
+        {
+            "day": 5,
+            "reading": {
+                "day": 5,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 20,
+                        "start_verse": 13,
+                        "end_verse": 37
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/20?lang=eng"
+            },
+            "title": "Singers vs. Swords 🎤⚔️",
+            "body": "So, Jehoshaphat and all Judah are facing three armies, totally helpless. Turns out, God's battle plan involves... singers! Imagine showing up to a fight with a choir instead of weapons. The surprising part is, it totally works! Go see how God turns a hopeless situation into a praise party in today's passages."
+        },
+        {
+            "day": 6,
+            "reading": {
+                "day": 6,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 26,
+                        "start_verse": 1,
+                        "end_verse": 23
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/26?lang=eng"
+            },
+            "title": "When Success Goes Sideways 👑🤦‍♂️",
+            "body": "King Uzziah started out amazing, seeking God and becoming super powerful. But then, funny enough, all that success went to his head. He started thinking he could do things only priests were meant to do. Turns out, pride can be a real buzzkill, even for kings. See how quickly things can go from thriving to tragic in today's reading."
+        },
+        {
+            "day": 7,
+            "reading": {
+                "day": 7,
+                "passages": [
+                    {
+                        "book": "2 Chronicles",
+                        "chapter": 30,
+                        "start_verse": 1,
+                        "end_verse": 27
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/2-chr/30?lang=eng"
+            },
+            "title": "Extended Feast Fun! 🥳✉️",
+            "body": "King Hezekiah decides to throw a massive Passover party, inviting *everyone*, even those who hadn't been following the rules. You'd never guess, but some people actually mocked his invitation! Plot twist: many humbled themselves and came, and the party was so good, they extended it for another week! Go see this epic spiritual reunion and celebration today."
+        }
+    ]
+}
