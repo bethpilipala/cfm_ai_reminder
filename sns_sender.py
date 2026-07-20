@@ -5,6 +5,7 @@ from botocore.exceptions import ClientError # type: ignore
 from dotenv import load_dotenv
 
 from config_loader import load_config
+from secret_manager import get_secret
 
 
 load_dotenv()
@@ -17,8 +18,9 @@ def send_sms(title: str, message: str) -> None:
 
     config = load_config()
 
-    phone_number = os.getenv(
-        "PHONE_NUMBER"
+    phone_number = get_secret(
+        "PHONE_NUMBER",
+        "/cfm/phone_number",
     )
 
     if phone_number is None:

@@ -2,6 +2,8 @@ import os
 import smtplib
 
 from email.message import EmailMessage
+from secret_manager import get_secret
+
 from dotenv import load_dotenv
 
 
@@ -16,17 +18,19 @@ def send_email(
     Sends an email notification.
     """
 
-    sender = os.getenv(
-        "EMAIL_ADDRESS"
+    sender = get_secret(
+        "EMAIL_ADDRESS",
+        "/cfm/email_address",
     )
 
-    password = os.getenv(
-        "EMAIL_APP_PASSWORD"
+    password = get_secret(
+        "EMAIL_APP_PASSWORD",
+        "/cfm/email_app_password",
     )
 
-    recipients = os.getenv(
+    recipients = get_secret(
         "EMAIL_RECIPIENTS",
-        ""
+        "/cfm/email_recipients",
     ).split(",")
 
     recipients = [

@@ -4,12 +4,15 @@ import time
 
 from google import genai
 from google.genai import types, errors
-
+from secret_manager import get_secret
 from dotenv import load_dotenv
 
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = get_secret(
+    "GEMINI_API_KEY",
+    "/gemini/api_key",
+)
 
 if api_key is None:
     raise RuntimeError(

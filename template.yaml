@@ -5,23 +5,6 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   Come Follow Me AI Reminder Service
 
-Parameters:
-  EmailAddress:
-    Type: AWS::SSM::Parameter::Value<String>
-    Default: /cfm/email_address
-
-  EmailAppPassword:
-    Type: AWS::SSM::Parameter::Value<String>
-    Default: /cfm/email_app_password
-
-  EmailRecipients:
-    Type: AWS::SSM::Parameter::Value<String>
-    Default: /cfm/email_recipients
-
-  PhoneNumber:
-    Type: AWS::SSM::Parameter::Value<String>
-    Default: /cfm/phone_number
-
 Globals:
   Function:
     Timeout: 60
@@ -43,15 +26,26 @@ Resources:
       Policies:
         - AWSLambdaBasicExecutionRole
         - Statement:
-            Effect: Allow
+          - Effect: Allow
             Action:
               - sns:Publish
+              - ssm:GetParameter
+              - ssm:GetParameters
             Resource: "*"
 
       Environment:
         Variables:
-          EMAIL_ADDRESS: !Ref EmailAddress
-          EMAIL_APP_PASSWORD: !Ref EmailAppPassword
-          EMAIL_RECIPIENTS: !Ref EmailRecipients
-          PHONE_NUMBER: !Ref PhoneNumber
+          EMAIL_ADDRESS_PARAM: "/cfm/email_address"
+          EMAIL_APP_PASSWORD_PARAM: "/cfm/email_app_password"
+          EMAIL_RECIPIENTS_PARAM: "/cfm/email_recipients"
+          PHONE_NUMBER_PARAM: "/cfm/phone_number"
+          GEMINI_API_KEY_PARAM: "/gemini/api_key"
           PYTHONUNBUFFERED: "1"
+
+      Events:
+        DailySchedule:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0 13 * * ? *)
+            Description: Daily Come Follow Me Reminder
+            Enabled: true

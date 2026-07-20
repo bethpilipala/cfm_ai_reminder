@@ -1,0 +1,15 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "cfm-ai-reminder"
+resolve_s3 = true
+s3_prefix = "cfm-ai-reminder"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "EmailAddress=\"/cfm/email_address\" EmailAppPassword=\"/cfm/email_app_password\" EmailRecipients=\"/cfm/email_recipients\" PhoneNumber=\"/cfm/phone_number\" GeminiApiKey=\"/gemini/api_key\""
+image_repositories = []
+
+[default.global.parameters]
+region = "us-east-1"
