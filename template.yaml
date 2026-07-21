@@ -16,6 +16,9 @@ Resources:
   DailyReminderFunction:
     Type: AWS::Serverless::Function
 
+    Metadata:
+      BuildMethod: python3.12
+
     Properties:
       FunctionName: cfm-daily-reminder
 
@@ -25,7 +28,7 @@ Resources:
 
       Policies:
         - AWSLambdaBasicExecutionRole
-        
+
         - Statement:
             Effect: Allow
             Action:

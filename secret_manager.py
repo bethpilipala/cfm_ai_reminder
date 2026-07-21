@@ -39,14 +39,13 @@ def get_secret(
     if running_in_lambda():
 
         parameter_name = (
-            config["aws"]
-                  ["parameter_store"]
+            config["aws_parameter_store"]
                   [env_name]
         )
 
         ssm = boto3.client(
             "ssm",
-            region_name=config["aws"]["region"],
+            region_name=config["aws_region"],
         )
 
         response = ssm.get_parameter(
