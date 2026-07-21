@@ -1,375 +1,246 @@
-# Come, Follow Me AI Reminder
+# Come, Follow Me AI Reminder Service
 
-An automated system that generates and sends daily Come, Follow Me reading reminders.
-
-The project combines deterministic code with AI:
-
-- Code determines factual information.
-- AI makes subjective decisions such as dividing readings and writing reminders.
+An automated Python application that generates personalized daily **Come, Follow Me** study reminders using AI and delivers them through email and/or SMS. The project is designed to run locally for development or as a scheduled AWS Lambda function in production with the same codebase.
 
 ---
 
-# Current Progress
+## Overview
 
-✅ Config
+Each week the application:
 
-✅ Download HTML
+- Determines the current Come, Follow Me lesson
+- Downloads and parses the official lesson from ChurchofJesusChrist.org
+- Extracts the scripture assignment
+- Calculates verse counts
+- Divides the weekly reading into balanced daily assignments
+- Uses AI to generate personalized daily reminders
+- Saves the completed weekly plan
 
-✅ Parse lesson
+Each day it:
 
-✅ Find current lesson
+- Loads the current week's plan (or generates one if none exists)
+- Selects today's reading
+- Builds the daily reminder
+- Sends notifications using the configured delivery methods
 
-✅ Parse scripture references
+---
 
-✅ Verse lookup
+## Features
 
-✅ AI reading division
+- Automatic weekly Come, Follow Me lesson detection
+- Scripture parsing and reading assignment generation
+- Balanced daily reading schedule creation
+- AI-generated personalized daily reminders
+- Weekly plan caching to avoid unnecessary regeneration
+- Email notifications (Gmail SMTP)
+- SMS notifications (Amazon SNS)
+- Configurable notification methods
+- Local development using `.env`
+- Production deployment on AWS Lambda
+- Secure secret management through AWS Systems Manager Parameter Store
 
-✅ Reading validation
+---
 
-✅ AI reminder generation
+## Example Message
 
-✅ Weekly plan storage
 
-✅ SMS notifications
+Lost & Found: The Best Book! 📖✨
 
-⬜ Weekly scheduler
+Imagine cleaning out your house and finding something incredibly valuable you totally forgot you had, something that changes everything! That's kind of what happens during King Josiah's reign when the Book of the Law is rediscovered. It sparks a massive spiritual revival and a kingdom-wide clean-up. Don't miss this inspiring read today!
 
-# Current Project Structure
+📖 Today's Reading:\
+2 Kings 22:1-20\
+2 Kings 23:1-37
 
-```mermaid
-flowchart TD
-    A[config.json] --> B[config_loader.py]
-    B --> C[lesson_finder.py]
+🔗 https://www.churchofjesuschrist.org/study/scriptures/ot/2-kgs/22?lang=eng
 
-    C --> D[lesson_fetcher.py]
-    D --> E[lesson_parser.py]
-    E --> F[Lesson]
 
-    C --> F
+---
 
-    F --> G[scripture_parser.py]
-    G --> H[ChapterInfo]
+## Architecture
 
-    H --> I[verse_lookup.py]
-    I --> J[ChapterInfo + Verse Counts]
-
-    J --> K[reading_divider.py]
-    K --> L[WeeklyPlan]
-
-    L --> M[reading_validator.py]
-    M --> N[plan_storage.py]
-    N --> O[plans/*.json]
-
-    O --> P[daily_sender.py]
-    P --> Q[reminder_generator.py]
-    Q --> R[notification.py]
-    R --> S[email_sender.py]
-    R --> T[sns_sender.py]
+```
+Church Website
+       │
+       ▼
+Lesson Fetcher
+       │
+       ▼
+Scripture Parser
+       │
+       ▼
+Verse Counter
+       │
+       ▼
+Reading Divider
+       │
+       ▼
+Gemini AI
+       │
+       ▼
+Weekly Plan
+       │
+       ▼
+Daily Reminder
+       │
+       ├────────► Email (SMTP)
+       │
+       └────────► SMS (AWS SNS)
 ```
 
-## main.py
+---
 
-Application entry point.
+## Technology Stack
 
-Currently used to test the various modules while the project is under development.
+### Languages
 
-Eventually, this will start the weekly reminder generation pipeline.
+- Python 3.12
+
+### AI
+
+- Google Gemini
+
+### AWS
+
+- AWS Lambda
+- AWS SAM
+- Amazon EventBridge
+- Amazon SNS
+- AWS Systems Manager Parameter Store
+- Amazon CloudFormation
+
+### Libraries
+
+- requests
+- beautifulsoup4
+- python-dateutil
+- boto3
+- google-genai
+- python-dotenv
 
 ---
 
-## config.json
+## Project Structure
 
-Stores user-editable configuration.
+```
+.
+├── ai_client.py              # AI interface
+├── config_loader.py          # Configuration loading
+├── daily_sender.py           # Daily reminder workflow
+├── email_sender.py           # Email notifications
+├── lambda_handler.py         # AWS Lambda entry point
+├── lesson_fetcher.py         # Lesson downloader
+├── lesson_finder.py          # Current lesson detection
+├── lesson_parser.py          # Lesson parsing
+├── main.py                   # Local entry point
+├── models.py                 # Shared models
+├── notification.py           # Notification dispatcher
+├── plan_storage.py           # Weekly plan persistence
+├── prompt_loader.py          # AI prompt loading
+├── reading_divider.py        # Daily reading generation
+├── reading_validator.py      # Reading validation
+├── reminder_generator.py     # AI reminder generation
+├── scripture_parser.py       # Scripture parsing
+├── scripture_url.py          # Scripture URL generation
+├── secret_manager.py         # Secret loading
+├── sns_sender.py             # SMS notifications
+├── template.yaml             # AWS SAM template
+├── utils.py                  # Shared utilities
+├── verse_lookup.py           # Verse counting
+├── weekly_pipeline.py        # Weekly generation pipeline
+│
+├── plans/                    # Cached weekly plans
+├── prompts/                  # AI prompt templates
+├── data/                     # Supporting data
+├── tests/                    # Unit tests
+└── config.json               # Application configuration
+```
 
-Currently includes:
+---
 
-- Come, Follow Me manual URLs
+## Weekly Pipeline
+
+1. Locate the current Come, Follow Me lesson
+2. Download and parse the lesson
+3. Extract scripture assignments
+4. Determine verse counts
+5. Divide readings into daily portions
+6. Generate AI reminders
+7. Save the weekly plan
+
+Each generated plan is stored as a separate file (one per week), using the week's start date as the filename (for example: `2026-07-20`).
+
+---
+
+## Notification Pipeline
+
+Every day the application:
+
+- Loads the current week's plan
+- Determines today's reading assignment
+- Retrieves today's AI-generated reminder
+- Builds the notification message
+- Includes a scripture URL for quick access
+- Sends notifications using the configured delivery methods
+
+Notification methods are configurable and currently support:
+
+- Email (SMTP)
+- SMS (Amazon SNS)
+
+---
+
+## Configuration
+
+Application behavior is controlled through `config.json`, including:
+
+- Supported Come, Follow Me manuals
 - Time zone
 - Notification time
+- AWS region
+- AWS Parameter Store paths
+- Enabled notification methods
+
+Secrets are **never** stored in the configuration file.
 
 ---
 
-## config_loader.py
+## Secret Management
 
-Loads configuration information.
+The project uses a single abstraction for secrets.
 
-Responsibilities:
+### Local Development
 
-- Read `config.json`
-- Determine the correct manual URL
-- Predict future manual URLs if the current year is not configured
-- Verify predicted URLs exist
+Secrets are loaded from a `.env` file.
 
----
+### AWS Deployment
 
-## models.py
+Secrets are loaded from AWS Systems Manager Parameter Store.
 
-Contains all project data models using Python dataclasses.
-
-Current models:
-
-- LessonWeek
-- Lesson
-- ChapterInfo
-- DailyReading
-- Reminder
-- WeeklyPlan
-
-The models are progressively enriched as they move through the pipeline.
-
-For example:
-
-Lesson
-
-↓
-
-ChapterInfo
-
-↓
-
-ChapterInfo (with verse counts)
-
-These objects are passed between modules instead of using dictionaries.
+The rest of the application is unaware of where secrets originate, allowing the same code to run locally and in AWS without modification.
 
 ---
 
-## lesson_fetcher.py
+## AWS Deployment
 
-Downloads lesson pages from the official Church website.
+The production deployment consists of:
 
-Responsibilities:
+- AWS Lambda
+- Amazon EventBridge scheduled trigger
+- Amazon SNS
+- AWS Systems Manager Parameter Store
+- AWS SAM / CloudFormation
 
-- Download HTML
-- Report download failures
-
-Does **not** parse any HTML.
-
----
-
-## lesson_parser.py
-
-Parses downloaded HTML into a `Lesson` object.
-
-Responsibilities:
-
-- Parse the lesson page title
-- Extract:
-  - Lesson week
-  - Lesson title
-  - Scripture assignment
-- Convert lesson dates into `date` objects
-- Return a populated `Lesson`
-
-The parser is deterministic and does not rely on AI.
+The Lambda function executes once per day to generate and send that day's reminder.
 
 ---
 
-## lesson_finder.py
-
-Determines the current week's lesson.
-
-Responsibilities:
-
-- Determine the current manual
-- Download lesson pages
-- Parse each lesson
-- Compare the lesson week to today's date
-- Return the current `Lesson`
-
----
-
-## scripture_parser.py
-
-Parses scripture assignments into structured chapter data.
-
-Supports:
-
-- Single chapters
-- Consecutive chapter ranges
-- Non-consecutive chapter ranges
-- Multiple books
-- Numbered books
-- Long book names
-- Introductory lessons with no scripture reading
-
-Example:
-
-```
-Proverbs 1–4; 15–16; 22; 31; Ecclesiastes 1–3; 11–12
-```
-
-↓
-
-```
-Proverbs 1
-Proverbs 2
-Proverbs 3
-Proverbs 4
-Proverbs 15
-Proverbs 16
-Proverbs 22
-Proverbs 31
-Ecclesiastes 1
-Ecclesiastes 2
-Ecclesiastes 3
-Ecclesiastes 11
-Ecclesiastes 12
-```
-
-If a lesson contains no scripture reading (such as an introduction lesson), an empty chapter list is returned.
-
----
-
-## utils.py
-
-General helper functions used throughout the project.
-
-Responsibilities:
-
-- Parse Come, Follow Me lesson date ranges
-- Build lesson URLs
-- General helper functions shared across modules
-
----
-
-## verse_lookup.py
-
-Loads verse counts from a local JSON database.
-
-Responsibilities:
-
-- Load the verse-count dataset
-- Populate each `ChapterInfo` with its verse count
-- Validate that every referenced chapter exists
-
-The verse-count JSON is considered the authoritative source.
-
----
-
-## reading_divider.py
-
-Uses AI to divide the week's reading into seven balanced daily assignments.
-
-Responsibilities:
-
-- Build the request for the AI service
-- Parse the AI response into a `WeeklyPlan`
-- Retry attempts until the result validates successfully
-
----
-
-## reading_validator.py
-
-Validates generated plans to ensure they contain exactly seven daily readings and that every verse is included exactly once without duplicates or out-of-range verses.
-
----
-
-## plan_storage.py
-
-Saves weekly plans to JSON files in the `plans` directory and loads them when needed.
-
----
-
-## reminder_generator.py
-
-Uses AI to generate daily reading reminders.
-
-Responsibilities:
-
-- Build reminder content for each day of the week
-- Use the current reading plan and weekly lesson context
-- Produce title/body content for notification delivery
-
----
-
-## daily_sender.py
-
-Creates the daily reminder message for the current day and sends it using the configured notification methods.
-
-Responsibilities:
-
-- Determine today’s day number within the current CFM week
-- Load the current weekly plan
-- Build the subject and message body
-- Send the notification through the selected delivery channels
-
----
-
-## notification.py
-
-Sends the daily reminder using all configured notification methods.
-
-Responsibilities:
-
-- Load the configured notification methods from config
-- Dispatch to email or SMS senders as appropriate
-
----
-
-## email_sender.py
-
-Sends reminder emails via SMTP using environment-based credentials.
-
----
-
-## sns_sender.py
-
-Sends reminder SMS messages through AWS SNS.
-
----
-
-# Repository File Overview
-
-A quick reference for the main files in this repository:
-
-- `ai_client.py` — Sends requests to the Gemini API and parses JSON responses.
-- `config_loader.py` — Loads configuration settings and resolves the current Come, Follow Me manual URL.
-- `config.json` — Stores user-editable configuration values such as manual URLs and timing defaults.
-- `daily_sender.py` — Creates the daily reminder message for the current day and sends it through the configured notification methods.
-- `email_sender.py` — Sends reminder emails via SMTP using environment-based credentials.
-- `lesson_fetcher.py` — Downloads lesson HTML pages from the Church website.
-- `lesson_finder.py` — Finds the current week's lesson based on the available manual pages.
-- `lesson_parser.py` — Parses lesson HTML into structured lesson data.
-- `main.py` — Main script used to generate the current weekly reading plan.
-- `models.py` — Defines the dataclasses used throughout the pipeline.
-- `notification.py` — Dispatches notifications using all configured delivery methods.
-- `plan_storage.py` — Saves and loads weekly reading plans to JSON files.
-- `prompt_loader.py` — Loads prompt templates from the `prompts` directory.
-- `reading_divider.py` — Uses AI to divide the week's reading into seven daily assignments.
-- `reading_validator.py` — Validates generated reading plans for completeness and correctness.
-- `reminder_generator.py` — Planned module for generating reminder messages.
-- `requirements.txt` — Python dependencies required by the project.
-- `scripture_parser.py` — Parses scripture assignments into structured chapter data.
-- `scripture_url.py` — Helps resolve scripture URLs for daily readings.
-- `sns_sender.py` — Sends reminder SMS messages through AWS SNS.
-- `utils.py` — Shared helper functions used across the project.
-- `verse_lookup.py` — Adds verse counts to parsed chapter information.
-- `weekly_pipeline.py` — Placeholder for the broader weekly-processing pipeline.
-
----
-
-# Design Philosophy
-
-The project follows one guiding principle:
-
-> Objective truth comes from code. Subjective judgment comes from AI.
-
-Deterministic code is responsible for:
-
-- Current lesson selection
-- Scripture assignments
-- Chapter parsing
-- Verse counts
-- Validation
-- URLs
-- Data storage
-- Notifications
-
-AI is responsible for:
-
-- Dividing weekly readings into daily assignments
-- Writing personalized reminders
-- Natural language generation
-
-The AI is never treated as the source of factual scripture information.
+## Design Goals
+
+- Clean modular architecture
+- Environment-independent business logic
+- Secure secret management
+- Minimal duplication between local and cloud execution
+- Easily extensible notification system
+- Reusable weekly plan generation
+- Strong separation of responsibilities between modules
