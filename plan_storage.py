@@ -1,34 +1,72 @@
 import json
-from datetime import date
 from dataclasses import asdict
+from datetime import date
 from pathlib import Path
 
+import boto3  # type: ignore
+from botocore.exceptions import ClientError  # type: ignore
+
+from config_loader import load_config
 from models import (
+    ChapterInfo,
+    DailyReading,
     Lesson,
     LessonWeek,
-    ChapterInfo,
     Passage,
-    DailyReading,
     Reminder,
     WeeklyPlan,
 )
+from secret_manager import running_in_lambda
 from utils import week_start
 
 
 PLAN_DIRECTORY = Path("plans")
 
+_s3 = None #type: ignore
+
+
+def get_s3():
+    """
+    Returns a cached S3 client.
+    """
+
+    global _s3
+
+    if _s3 is None:
+        _s3 = boto3.client("s3")
+
+    return _s3
+
+
+def get_bucket_name() -> str:
+    """
+    Returns the configured S3 bucket.
+    """
+
+    config = load_config()
+
+    return config["plan_bucket"]
+
 
 def plan_filename(week: date) -> Path:
     """
-    Returns the filename for the weekly plan.
+    Returns the local filename for a weekly plan.
     """
 
     return PLAN_DIRECTORY / f"{week.isoformat()}.json"
 
 
+def plan_key(week: date) -> str:
+    """
+    Returns the filename/key used in S3.
+    """
+
+    return f"{week.isoformat()}.json"
+
+
 def current_plan_filename() -> Path:
     """
-    Returns the filename for the current week's plan.
+    Returns the current week's local filename.
     """
 
     return plan_filename(
@@ -38,58 +76,109 @@ def current_plan_filename() -> Path:
 
 def current_plan_exists() -> bool:
     """
-    Returns True if a plan already exists for the current week.
+    Returns True if the current week's plan exists.
     """
+
+    week = week_start(date.today())
+
+    if running_in_lambda():
+
+        try:
+
+            get_s3().head_object(
+                Bucket=get_bucket_name(),
+                Key=plan_key(week),
+            )
+
+            return True
+
+        except ClientError:
+
+            return False
 
     return current_plan_filename().exists()
 
 
 def save_plan(plan: WeeklyPlan) -> None:
     """
-    Saves a weekly reading plan as a JSON file.
+    Saves a weekly reading plan.
     """
 
-    PLAN_DIRECTORY.mkdir(
-        exist_ok=True
+    data = json.dumps(
+        asdict(plan),
+        indent=4,
+        ensure_ascii=False,
+        default=str,
     )
 
-    filepath = plan_filename(
-        plan.lesson.week.start
-    )
+    week = plan.lesson.week.start
 
-    with filepath.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
-        json.dump(
-            asdict(plan),
-            file,
-            indent=4,
-            ensure_ascii=False,
-            default=str,
+    if running_in_lambda():
+
+        get_s3().put_object(
+            Bucket=get_bucket_name(),
+            Key=plan_key(week),
+            Body=data,
+            ContentType="application/json",
         )
+
+    else:
+
+        PLAN_DIRECTORY.mkdir(
+            exist_ok=True
+        )
+
+        filepath = plan_filename(week)
+
+        with filepath.open(
+            "w",
+            encoding="utf-8",
+        ) as file:
+
+            file.write(data)
 
 
 def load_plan(
     week: date,
 ) -> WeeklyPlan:
     """
-    Loads a weekly reading plan from JSON.
+    Loads a weekly reading plan.
     """
 
-    filepath = plan_filename(week)
+    if running_in_lambda():
 
-    if not filepath.exists():
-        raise FileNotFoundError(
-            f"No plan found for {week}."
+        try:
+
+            response = get_s3().get_object(
+                Bucket=get_bucket_name(),
+                Key=plan_key(week),
+            )
+
+        except ClientError:
+
+            raise FileNotFoundError(
+                f"No plan found for {week}."
+            )
+
+        data = json.loads(
+            response["Body"].read().decode("utf-8")
         )
 
-    with filepath.open(
-        "r",
-        encoding="utf-8",
-    ) as file:
-        data = json.load(file)
+    else:
 
+        filepath = plan_filename(week)
+
+        if not filepath.exists():
+            raise FileNotFoundError(
+                f"No plan found for {week}."
+            )
+
+        with filepath.open(
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            data = json.load(file)
 
     # Rebuild LessonWeek
 
@@ -103,7 +192,6 @@ def load_plan(
         ),
     )
 
-
     # Rebuild Lesson
 
     lesson = Lesson(
@@ -114,7 +202,6 @@ def load_plan(
         lesson_url=data["lesson"]["lesson_url"],
         year=data["lesson"]["year"],
     )
-
 
     # Rebuild chapters
 
@@ -129,7 +216,6 @@ def load_plan(
                 verse_count=chapter["verse_count"],
             )
         )
-
 
     # Rebuild readings
 
@@ -161,7 +247,6 @@ def load_plan(
             )
         )
 
-
     # Rebuild reminders
 
     reading_lookup = {
@@ -183,7 +268,6 @@ def load_plan(
                 body=reminder["body"],
             )
         )
-
 
     return WeeklyPlan(
         lesson=lesson,

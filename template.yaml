@@ -7,7 +7,7 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 60
+    Timeout: 180
     Runtime: python3.12
     MemorySize: 256
 
@@ -40,6 +40,14 @@ Resources:
             Action:
               - ssm:GetParameter
             Resource: "*"
+        
+        - Statement:
+            Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+              - s3:HeadObject
+            Resource: arn:aws:s3:::cfm-ai-reminder-plans/*
 
       Environment:
         Variables:
