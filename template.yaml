@@ -7,7 +7,7 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 180
+    Timeout: 480
     Runtime: python3.12
     MemorySize: 256
 
