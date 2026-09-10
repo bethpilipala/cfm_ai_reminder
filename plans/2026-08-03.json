@@ -1,0 +1,309 @@
+{
+    "lesson": {
+        "lesson_number": 32,
+        "week": {
+            "display": "August 3–9",
+            "start": "2026-08-03",
+            "end": "2026-08-09"
+        },
+        "title": "Thou Art Come … for Such a Time as This",
+        "scripture_assignment": "Esther",
+        "lesson_url": "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/32?lang=eng",
+        "year": 2026
+    },
+    "chapters": [
+        {
+            "book": "Esther",
+            "chapter": 1,
+            "verse_count": 22
+        },
+        {
+            "book": "Esther",
+            "chapter": 2,
+            "verse_count": 23
+        },
+        {
+            "book": "Esther",
+            "chapter": 3,
+            "verse_count": 15
+        },
+        {
+            "book": "Esther",
+            "chapter": 4,
+            "verse_count": 17
+        },
+        {
+            "book": "Esther",
+            "chapter": 5,
+            "verse_count": 14
+        },
+        {
+            "book": "Esther",
+            "chapter": 6,
+            "verse_count": 14
+        },
+        {
+            "book": "Esther",
+            "chapter": 7,
+            "verse_count": 10
+        },
+        {
+            "book": "Esther",
+            "chapter": 8,
+            "verse_count": 17
+        },
+        {
+            "book": "Esther",
+            "chapter": 9,
+            "verse_count": 32
+        },
+        {
+            "book": "Esther",
+            "chapter": 10,
+            "verse_count": 3
+        }
+    ],
+    "readings": [
+        {
+            "day": 1,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 1,
+                    "start_verse": 1,
+                    "end_verse": 22
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/1?lang=eng"
+        },
+        {
+            "day": 2,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 2,
+                    "start_verse": 1,
+                    "end_verse": 23
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/2?lang=eng"
+        },
+        {
+            "day": 3,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 3,
+                    "start_verse": 1,
+                    "end_verse": 15
+                },
+                {
+                    "book": "Esther",
+                    "chapter": 4,
+                    "start_verse": 1,
+                    "end_verse": 17
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/3?lang=eng"
+        },
+        {
+            "day": 4,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 5,
+                    "start_verse": 1,
+                    "end_verse": 14
+                },
+                {
+                    "book": "Esther",
+                    "chapter": 6,
+                    "start_verse": 1,
+                    "end_verse": 14
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/5?lang=eng"
+        },
+        {
+            "day": 5,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 7,
+                    "start_verse": 1,
+                    "end_verse": 10
+                },
+                {
+                    "book": "Esther",
+                    "chapter": 8,
+                    "start_verse": 1,
+                    "end_verse": 17
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/7?lang=eng"
+        },
+        {
+            "day": 6,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 9,
+                    "start_verse": 1,
+                    "end_verse": 32
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/9?lang=eng"
+        },
+        {
+            "day": 7,
+            "passages": [
+                {
+                    "book": "Esther",
+                    "chapter": 10,
+                    "start_verse": 1,
+                    "end_verse": 3
+                }
+            ],
+            "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/10?lang=eng"
+        }
+    ],
+    "reminders": [
+        {
+            "day": 1,
+            "reading": {
+                "day": 1,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 1,
+                        "start_verse": 1,
+                        "end_verse": 22
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/1?lang=eng"
+            },
+            "title": "👑 Royal Parties and Public Fails 🍷",
+            "body": "Imagine thinking a royal banquet gone wrong could never happen to you, but Esther chapter 1 proves that massive leadership drama is timeless. Turns out, ignoring the king's summons gets a queen permanently replaced real quick. Open up Esther 1 today and see how one wild party changes the entire kingdom's vibe."
+        },
+        {
+            "day": 2,
+            "reading": {
+                "day": 2,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 2,
+                        "start_verse": 1,
+                        "end_verse": 23
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/2?lang=eng"
+            },
+            "title": "🤫 Keeping Secrets in the Palace 🤫",
+            "body": "Plot twist: your new roommate is actually hiding their entire national identity from the most powerful monarch in the world. Esther plays the long game in the palace while Mordecai casually saves the king's life from behind the scenes. Dive into Esther 2 to catch the ultimate royal glow-up and see how God quietly sets the stage."
+        },
+        {
+            "day": 3,
+            "reading": {
+                "day": 3,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 3,
+                        "start_verse": 1,
+                        "end_verse": 15
+                    },
+                    {
+                        "book": "Esther",
+                        "chapter": 4,
+                        "start_verse": 1,
+                        "end_verse": 17
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/3?lang=eng"
+            },
+            "title": "😬 Worst Boss Ever Strikes Again 📜",
+            "body": "Funny enough, Haman letting a literal lottery decide the fate of an entire group of people is peak villain behavior. Mordecai and Esther are suddenly facing an absolute nightmare scenario where doing the right thing terrifies everyone involved. Crack open Esther 3 and 4 to see how they face this massive crisis."
+        },
+        {
+            "day": 4,
+            "reading": {
+                "day": 4,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 5,
+                        "start_verse": 1,
+                        "end_verse": 14
+                    },
+                    {
+                        "book": "Esther",
+                        "chapter": 6,
+                        "start_verse": 1,
+                        "end_verse": 14
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/5?lang=eng"
+            },
+            "title": "🎭 Karma Catches Up Fast 🏃‍♂️",
+            "body": "You'd never guess how quickly a villain's massive ego can completely ruin their whole week. While Haman is planning a massive public setup, the king suddenly decides to honor the exact person Haman hates most. Dive into Esther 5 and 6 to watch this delicious plot flip unfold in real-time."
+        },
+        {
+            "day": 5,
+            "reading": {
+                "day": 5,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 7,
+                        "start_verse": 1,
+                        "end_verse": 10
+                    },
+                    {
+                        "book": "Esther",
+                        "chapter": 8,
+                        "start_verse": 1,
+                        "end_verse": 17
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/7?lang=eng"
+            },
+            "title": "🎤 The Mic Drop Heard Worldwide 👑",
+            "body": "Turns out, revealing your secret identity at a dinner party is a wildly effective strategy when your life is on the line. Esther finally speaks up and Haman's entire master plan completely collapses. Jump into Esther 7 and 8 to see the tables turn faster than you can say royal decree."
+        },
+        {
+            "day": 6,
+            "reading": {
+                "day": 6,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 9,
+                        "start_verse": 1,
+                        "end_verse": 32
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/9?lang=eng"
+            },
+            "title": "🎉 Turning Tragedy Into Triumph 🗓️",
+            "body": "Imagine surviving a near-death national crisis and deciding to throw an annual party to remember how stressed you were. Esther and the Jews establish Purim so nobody ever forgets how things worked out. Open up Esther 9 to read how they celebrated their unexpected deliverance."
+        },
+        {
+            "day": 7,
+            "reading": {
+                "day": 7,
+                "passages": [
+                    {
+                        "book": "Esther",
+                        "chapter": 10,
+                        "start_verse": 1,
+                        "end_verse": 3
+                    }
+                ],
+                "scripture_url": "https://www.churchofjesuschrist.org/study/scriptures/ot/esth/10?lang=eng"
+            },
+            "title": "✨ Power Moves and Peace 🤝",
+            "body": "The surprising part is how Mordecai ends up basically running the kingdom while staying universally popular with his people. Talk about a glow-up from sitting outside the palace gates. Finish out the week in Esther 10 to see how this incredible story wraps up."
+        }
+    ]
+}
